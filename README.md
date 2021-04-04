@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# React Boilerplate
 
-this repo made to not install packages and manage files every time you want to use [Create React App](https://github.com/facebook/create-react-app).
+This repo made to not install packages and manage files every time you want to use [Create React App](https://github.com/facebook/create-react-app).
 
 ### `yarn start`
 
