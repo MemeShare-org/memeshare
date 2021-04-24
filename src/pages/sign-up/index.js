@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import BeatLoader from "react-spinners/BeatLoader";
-import SignInForm from "../../components/signin-form/index";
+import SignUpForm from "../../components/signup-form/index";
 import FooterLogo from "../../components/footer-logo/index";
 import FooterLinks from "../../components/footer-links/index";
 import { SignupDiv, SignupFooter } from "./style";
@@ -18,7 +18,7 @@ const Signin = () => {
 				<BeatLoader color='yellow' loading={loading} size={20} />
 			) : (
 				<>
-					<SignInForm />
+					<SignUpForm />
 					<SignupFooter>
 						<FooterLogo />
 						<FooterLinks />

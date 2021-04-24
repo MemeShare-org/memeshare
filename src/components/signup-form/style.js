@@ -6,6 +6,12 @@ export const SignupFormDiv = styled.div`
 	width: 300px;
 	height: auto;
 	padding: 20px;
+
+	a {
+		text-align: left;
+		margin: 10px 0px 10px 15px;
+		color: yellow;
+	}
 `;
 
 export const SignupMessage = styled.div`

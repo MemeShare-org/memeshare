@@ -1,9 +1,9 @@
 import React from "react";
-import Input from '../input';
-import Button from '../button';
-import { SignupFormDiv, SignupMessage } from './style';
+import Input from "../input";
+import Button from "../button";
+import { SignupFormDiv, SignupMessage } from "./style";
 
-const SignInForm = () => (
+const SignUpForm = () => (
 	<SignupFormDiv>
 		<SignupMessage>
 			<h2>Welcome,</h2>
@@ -12,8 +12,12 @@ const SignInForm = () => (
 		<Input Title='Username' Type='text' />
 		<Input Title='Email' Type='email' />
 		<Input Title='Password' Type='password' />
+		<div>
+			<a href='/sign-in'>I already have an account</a>
+		</div>
 		<Button Title='Sign up' Type='submit' />
 	</SignupFormDiv>
 );
 
-export default SignInForm;
+export default SignUpForm;
+	
