@@ -1,17 +1,8 @@
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: rgb(235, 213, 255);
-  background: linear-gradient(
-    90deg,
-    rgba(235, 213, 255, 1) 0%,
-    rgba(10, 43, 105, 1) 0%,
-    rgba(12, 70, 180, 1) 100%
-  );
-  color: #ffffff;
+  background: #0b0e11;
 }
 
 * {
@@ -23,17 +14,38 @@ body {
   text-align: center;
 }
 
-.centred-item {
-  font-size: calc(10px + 2vmin);
-  height: 85vh;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
+input {
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: #242c37;
+  color: white;
+  border-radius: 6px;
+  border: none;
+  width: 80%;
+  padding: 10px;
+  margin: 5px;
+  margin-left: 0px;
 }
 
-.centred-item p {
-  font-size: large;
-  max-width: 500px;
-  margin: 10px;
+input::placeholder {
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: white;
 }
+
+button {
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  text-align: center;
+  font-size: 16px;
+  background-color: gold;
+  border: 1px gold solid;
+  transition: all 0.4s ease-in-out;
+  border-radius: 4px;
+  color: #0b0e11;
+  padding: 10px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: transparent;
+  color: white;
+}   
