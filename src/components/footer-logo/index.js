@@ -4,7 +4,7 @@ import { FooterLogoDiv } from './style';
 
 const FooterLogo = () => (
 	<FooterLogoDiv>
-		<img src={Logo} />
+		<img src={Logo} alt='HI!' title='HI!' />
 		<h1>MemeShare</h1>
 	</FooterLogoDiv>
 );
