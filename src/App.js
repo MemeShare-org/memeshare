@@ -2,6 +2,7 @@ import React, { useState, useMemo } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import UserContext from "./context/userContext";
 import Signup from "./pages/sign-up/index";
+import Signin from "./pages/sign-in/index";
 import "./App.css";
 
 const App = () => {
@@ -17,6 +18,9 @@ const App = () => {
 					</Route>
 					<Route path='/sign-up'>
 						{user ? <Redirect to='/' /> : <Signup />}
+					</Route>
+					<Route path='/sign-in'>
+						{user ? <Redirect to='/' /> : <Signin />}
 					</Route>
 				</Switch>
 			</UserContext.Provider>
