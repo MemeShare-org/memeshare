@@ -7,7 +7,11 @@ import Signin from "./pages/sign-in/index";
 import "./App.css";
 
 const App = () => {
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState({
+    _id: '2342543',
+    username: 'iLaD',
+    email: 'imcool@coolkid.com'
+  });
   const UserProvider = useMemo(() => ({ user, setUser }), [user, setUser]);
 
   return (

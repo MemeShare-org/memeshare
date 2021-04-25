@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import UserContext from "../context/userContext";
 import { withStyles } from "@material-ui/core/styles";
 import IconButton from "@material-ui/core/IconButton";
 import Menu from "@material-ui/core/Menu";
@@ -43,6 +44,7 @@ const StyledMenuItem = withStyles(() => ({
 }))(MenuItem);
 
 const TopbarAccount = () => {
+  const { setUser } = useContext(UserContext);
   const [anchorEl, setAnchorEl] = useState(null);
 
   const handleClick = (event) => {
@@ -76,7 +78,7 @@ const TopbarAccount = () => {
             </ListItemIcon>
             <ListItemText primary='Profile' />
           </StyledMenuItem>
-          <StyledMenuItem>
+          <StyledMenuItem onClick={() => setUser()}>
             <ListItemIcon>
               <ExitToAppIcon fontSize='small' />
             </ListItemIcon>
