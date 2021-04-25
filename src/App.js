@@ -14,7 +14,7 @@ const App = () => {
 			<UserContext.Provider value={UserProvider}>
 				<Switch>
 					<Route exact path='/'>
-						{user ? <div>Home</div> : <Redirect to='/sign-up' />}
+						{user ? <div>Home</div> : <Redirect to='/sign-in' />}
 					</Route>
 					<Route path='/sign-up'>
 						{user ? <Redirect to='/' /> : <Signup />}
