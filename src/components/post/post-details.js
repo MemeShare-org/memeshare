@@ -5,8 +5,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
-import InboxIcon from "@material-ui/icons/MoveToInbox";
-import DraftsIcon from "@material-ui/icons/Drafts";
+import LinkIcon from '@material-ui/icons/Link';
 import SendIcon from "@material-ui/icons/Send";
 
 const StyledMenu = withStyles({
@@ -70,21 +69,9 @@ const PostDetails = () => {
         onClose={handleClose}>
         <StyledMenuItem>
           <ListItemIcon>
-            <SendIcon fontSize='small' />
+            <LinkIcon fontSize='small' />
           </ListItemIcon>
-          <ListItemText primary='Sent mail' />
-        </StyledMenuItem>
-        <StyledMenuItem>
-          <ListItemIcon>
-            <DraftsIcon fontSize='small' />
-          </ListItemIcon>
-          <ListItemText primary='Drafts' />
-        </StyledMenuItem>
-        <StyledMenuItem>
-          <ListItemIcon>
-            <InboxIcon fontSize='small' />
-          </ListItemIcon>
-          <ListItemText primary='Inbox' />
+          <ListItemText primary='Share' />
         </StyledMenuItem>
       </StyledMenu>
     </div>

@@ -24,6 +24,7 @@ export const TopPostDiv = styled.div`
 
   svg {
     margin-right: 10px;
+    cursor: pointer;
     color: black;
   }
 `;
@@ -35,7 +36,7 @@ export const AuthorDiv = styled.div`
 
   img {
     border-radius: 50px;
-    margin-left: 10px;
+    padding: 10px;
     width: 50px;
   }
 
