@@ -6,11 +6,10 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
 import LinkIcon from '@material-ui/icons/Link';
-import SendIcon from "@material-ui/icons/Send";
 
 const StyledMenu = withStyles({
   paper: {
-    border: "none",
+    border: "1px solid #0b0e11",
     backgroundColor: "#242c37",
     color: "white",
 },
