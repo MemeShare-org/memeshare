@@ -44,7 +44,7 @@ const StyledMenuItem = withStyles(() => ({
 }))(MenuItem);
 
 const TopbarAccount = () => {
-  const { setUser } = useContext(UserContext);
+  const { user, setUser } = useContext(UserContext);
   const [anchorEl, setAnchorEl] = useState(null);
 
   const handleClick = (event) => {
@@ -72,7 +72,7 @@ const TopbarAccount = () => {
         onClose={handleClose}
         >
         <div>
-          <StyledMenuItem onClick={() => (window.location.href = `/profile/`)}>
+          <StyledMenuItem onClick={() => (window.location.href = `/profile/${user.username}`)}>
             <ListItemIcon>
               <SupervisorAccountIcon fontSize='small' />
             </ListItemIcon>

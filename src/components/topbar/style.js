@@ -23,7 +23,7 @@ export const TopbarDiv = styled.div`
 
   svg {
     font-size: 50px;
-    color: lightblue;
+    color: white;
   }
 
   @media screen and (max-width: 768px) {
