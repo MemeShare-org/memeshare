@@ -11,7 +11,7 @@ export const TopbarDiv = styled.div`
   input {
     font-size: 18px;
     position: fixed;
-    right: 25%;
+    right: 30%;
     width: 40%;
   }
 
