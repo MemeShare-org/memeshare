@@ -11,6 +11,14 @@ export const PostDiv = styled.div`
     width: 600px;
     height: 82.5%;
   }
+
+  @media screen and (max-width: 768px) {
+    width: 80%;
+
+    img {
+      width: 95%;
+    }
+  }
 `;
 
 export const TopPostDiv = styled.div`

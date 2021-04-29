@@ -29,22 +29,21 @@ export const TopbarDiv = styled.div`
 
   @media screen and (max-width: 768px) {
     input {
+      width: 55%;
       right: 20%;
-      width: 50%;
     }
+    
     button {
       position: fixed;
       top: 10px;
       right: 0px;
     }
+
     svg {
       font-size: 60px;
       color: white;
     }
-    .logo {
-      position: fixed;
-      left: -30px;
-    }
+
     .header {
       display: none;
     }
