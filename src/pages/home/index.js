@@ -5,7 +5,7 @@ import { HomeDiv, PostsDiv } from "./style";
 
 const Home = () => (
   <HomeDiv>
-    <Topbar/>
+    <Topbar />
     <PostsDiv>
       <Post
         Id='1'
@@ -22,10 +22,10 @@ const Home = () => (
         Date='23/4/2021'
         Author={{
           picture:
-            "https://i.redd.it/hl18vbd853w61.png",
+            "https://deadline.com/wp-content/uploads/2020/11/Stephen-Lang-Headshot-Matt-Sayles-e1605093774374.jpg?w=681&h=383&crop=1",
           username: "Your Daddy",
         }}
-        Upload='https://i.redd.it/gno9rwueyhv61.jpg'
+        Upload='https://i.redd.it/hl18vbd853w61.png'
       />
     </PostsDiv>
   </HomeDiv>
