@@ -1,18 +1,20 @@
 import React from "react";
 import { withStyles } from "@material-ui/core/styles";
+import { toast } from "react-toastify";
+import { CopyToClipboard } from "react-copy-to-clipboard";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
-import LinkIcon from '@material-ui/icons/Link';
+import LinkIcon from "@material-ui/icons/Link";
 
 const StyledMenu = withStyles({
   paper: {
     border: "1px solid #0b0e11",
     backgroundColor: "#242c37",
     color: "white",
-},
+  },
 })((props) => (
   <Menu
     elevation={0}
@@ -40,7 +42,7 @@ const StyledMenuItem = withStyles(() => ({
   },
 }))(MenuItem);
 
-const PostDetails = () => {
+const PostDetails = ({ Id }) => {
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleClick = (event) => {
@@ -54,10 +56,10 @@ const PostDetails = () => {
   return (
     <div>
       <KeyboardArrowDownIcon
+        style={{ color: 'white' }}
         aria-controls='customized-menu'
         aria-haspopup='true'
         variant='contained'
-        color='primary'
         onClick={handleClick}
       />
       <StyledMenu
@@ -66,12 +68,16 @@ const PostDetails = () => {
         keepMounted
         open={Boolean(anchorEl)}
         onClose={handleClose}>
-        <StyledMenuItem>
-          <ListItemIcon>
-            <LinkIcon fontSize='small' />
-          </ListItemIcon>
-          <ListItemText primary='Share' />
-        </StyledMenuItem>
+        <CopyToClipboard
+          text={`${window.location.hostname}/post/${Id}`}
+          onCopy={() => toast.success("Copied Successfully!")}>
+          <StyledMenuItem>
+            <ListItemIcon>
+              <LinkIcon style={{ color: "white" }} fontSize='small' />
+            </ListItemIcon>
+            <ListItemText primary='Share' />
+          </StyledMenuItem>
+        </CopyToClipboard>
       </StyledMenu>
     </div>
   );

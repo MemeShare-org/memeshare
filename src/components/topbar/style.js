@@ -13,6 +13,7 @@ export const TopbarDiv = styled.div`
     position: fixed;
     right: 30%;
     width: 40%;
+    margin: 0px;
   }
 
   button {

@@ -13,8 +13,8 @@ import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 const StyledMenu = withStyles({
   paper: {
     border: "none",
-    backgroundColor: '#242c37',
-    color: 'white'
+    backgroundColor: "#242c37",
+    color: "white",
   },
 })((props) => (
   <Menu
@@ -37,7 +37,7 @@ const StyledMenuItem = withStyles(() => ({
     "&:focus": {
       backgroundColor: "#242c37",
       "&.MuiListItemText-primary": {
-        color: 'white',
+        color: "white",
       },
     },
   },
@@ -69,18 +69,23 @@ const TopbarAccount = () => {
         anchorEl={anchorEl}
         keepMounted
         open={Boolean(anchorEl)}
-        onClose={handleClose}
-        >
+        onClose={handleClose}>
         <div>
-          <StyledMenuItem onClick={() => (window.location.href = `/profile/${user.username}`)}>
+          <StyledMenuItem
+            onClick={() =>
+              (window.location.href = `/profile/${user.username}`)
+            }>
             <ListItemIcon>
-              <SupervisorAccountIcon fontSize='small' />
+              <SupervisorAccountIcon
+                style={{ color: "white" }}
+                fontSize='small'
+              />
             </ListItemIcon>
             <ListItemText primary='Profile' />
           </StyledMenuItem>
           <StyledMenuItem onClick={() => setUser()}>
             <ListItemIcon>
-              <ExitToAppIcon fontSize='small' />
+              <ExitToAppIcon style={{ color: "white" }} fontSize='small' />
             </ListItemIcon>
             <ListItemText primary='Sign out' />
           </StyledMenuItem>

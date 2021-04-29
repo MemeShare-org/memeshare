@@ -1,12 +1,12 @@
 import React from "react";
-import FooterLogo from "../footer-logo/index";
+import Logo from "../logo/index";
 import Input from "../input";
 import TopbarAccount from "../topbar-account";
 import { TopbarDiv } from "./style";
   
 const Topbar = () => (
   <TopbarDiv>
-    <FooterLogo />
+    <Logo />
     <Input Title='Search' Type='search' />
     <TopbarAccount />
   </TopbarDiv>

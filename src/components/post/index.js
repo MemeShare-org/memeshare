@@ -2,7 +2,7 @@ import React from "react";
 import PostDetails from "./post-details";
 import { PostDiv, TopPostDiv, AuthorDiv } from "./style";
 
-const Post = ({ Date, Author, Upload }) => {
+const Post = ({ Id, Date, Author, Upload }) => {
   return (
     <PostDiv>
       <TopPostDiv>
@@ -14,7 +14,7 @@ const Post = ({ Date, Author, Upload }) => {
           />
           <span>{Author.username}</span>
         </AuthorDiv>
-        <PostDetails />
+        <PostDetails Id={Id} />
       </TopPostDiv>
       <img src={Upload} alt={Author.username} title={Author.username} />
     </PostDiv>

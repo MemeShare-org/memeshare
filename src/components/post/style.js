@@ -1,10 +1,11 @@
 import styled from "styled-components";
 
 export const PostDiv = styled.div`
-  background-color: #1f252e;
+  background-color: #242c37;
   border-radius: 6px;
   width: 40%;
   height: 60%;
+  margin: 10px 0px 15px 0px;
 
   img {
     width: 600px;
@@ -13,7 +14,7 @@ export const PostDiv = styled.div`
 `;
 
 export const TopPostDiv = styled.div`
-  background-color: #1a1f26;
+  background-color: #242c37;
   border-radius: 6px 6px 0px 0px;
   display: flex;
   justify-content: space-between;
@@ -32,16 +33,17 @@ export const TopPostDiv = styled.div`
 export const AuthorDiv = styled.div`
   display: flex;
   align-items: center;
-  margin-top: 10px;
+  padding: 10px;
 
   img {
     border-radius: 50px;
-    padding: 10px;
     width: 50px;
+    height: 50px;
   }
 
   span {
     font-size: 20px;
+    color: white;
     margin-left: 10px;
   }
 `;
