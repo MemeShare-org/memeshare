@@ -8,8 +8,8 @@ export const PostDiv = styled.div`
   margin: 10px 0px 15px 0px;
 
   img {
-    width: 600px;
-    height: 82.5%;
+    width: 95%;
+    height: auto;
   }
 
   @media screen and (max-width: 768px) {
@@ -44,6 +44,7 @@ export const AuthorDiv = styled.div`
   padding: 10px;
 
   img {
+    margin: 0px;
     border-radius: 50px;
     width: 50px;
     height: 50px;

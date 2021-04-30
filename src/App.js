@@ -5,7 +5,7 @@ import { ToastContainer } from "react-toastify";
 import Home from "./pages/home/index";
 import Signup from "./pages/sign-up/index";
 import Signin from "./pages/sign-in/index";
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
 
 const App = () => {
@@ -14,6 +14,7 @@ const App = () => {
     username: "iLaD",
     email: "imcool@coolkid.com",
   });
+
   const UserProvider = useMemo(() => ({ user, setUser }), [user, setUser]);
 
   return (
