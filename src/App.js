@@ -9,11 +9,7 @@ import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
 
 const App = () => {
-  const [user, setUser] = useState({
-    _id: "2342543",
-    username: "iLaD",
-    email: "imcool@coolkid.com",
-  });
+  const [user, setUser] = useState();
 
   const UserProvider = useMemo(() => ({ user, setUser }), [user, setUser]);
 

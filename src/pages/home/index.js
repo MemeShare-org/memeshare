@@ -31,16 +31,6 @@ const Home = () => {
               }}
               Upload='https://i.redd.it/gno9rwueyhv61.jpg'
             />
-            <Post
-              Id='2'
-              Date='23/4/2021'
-              Author={{
-                picture:
-                  "https://deadline.com/wp-content/uploads/2020/11/Stephen-Lang-Headshot-Matt-Sayles-e1605093774374.jpg?w=681&h=383&crop=1",
-                username: "Old man",
-              }}
-              Upload='https://i.redd.it/hl18vbd853w61.png'
-            />
           </PostsDiv>
         </>
       )}
