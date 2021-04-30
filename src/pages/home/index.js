@@ -23,7 +23,7 @@ const Home = () => (
         Author={{
           picture:
             "https://deadline.com/wp-content/uploads/2020/11/Stephen-Lang-Headshot-Matt-Sayles-e1605093774374.jpg?w=681&h=383&crop=1",
-          username: "Your Daddy",
+          username: "Old man",
         }}
         Upload='https://i.redd.it/hl18vbd853w61.png'
       />

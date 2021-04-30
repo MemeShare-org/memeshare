@@ -53,6 +53,7 @@ export const AuthorDiv = styled.div`
   span {
     font-size: 20px;
     color: white;
+    cursor: pointer;
     margin-left: 10px;
   }
 `;
