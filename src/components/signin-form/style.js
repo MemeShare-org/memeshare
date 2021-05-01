@@ -12,6 +12,14 @@ export const SigninFormDiv = styled.div`
 		margin: 10px 0px 10px 15px;
 		color: yellow;
 	}
+
+	.error {
+		border: 1px solid red;
+	}
+
+	.succes {
+		border: none;
+	}
 `;
 
 export const SigninMessage = styled.div`
