@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Logo from "../logo/index";
 import Input from "../input";
-import TopbarAccount from "../topbar-account";
+import TopbarAccount from "./topbar-account";
 import { TopbarDiv, ScrollTopbar } from "./style";
 
 const Topbar = () => {
