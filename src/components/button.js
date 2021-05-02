@@ -1,5 +1,5 @@
 import React from "react";
 
-const Button = ({ Title, Type }) => <button type={Type}>{Title}</button>;
+const Button = ({ Title, Type, Disable }) => <button type={Type} disabled={Disable}>{Title}</button>;
 
 export default Button;

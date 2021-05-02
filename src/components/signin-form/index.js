@@ -53,7 +53,7 @@ const SignInForm = () => {
             <div>
               <a href='/sign-up'>I don't have an account</a>
             </div>
-            <Button Title='Sign in' Type='submit' />
+            <Button Title='Sign in' Type='submit' Disable={isSubmitting} />
           </Form>
         )}
       </Formik>
