@@ -15,6 +15,24 @@ const Home = () => {
         username: "iLaD",
       },
       upload: "https://i.redd.it/gno9rwueyhv61.jpg",
+    },
+    {
+      id: "564675765756765756",
+      date: "2/5/2021",
+      author: {
+        picture: "https://b.thumbs.redditmedia.com/Rtu2Mw0L-mx7AeYtHKkbAh75jQbgzy_Hk2UIlLeZFSs.png",
+        username: "RMBG",
+      },
+      upload: "https://i.redd.it/bdnmprwgbow61.jpg",
+    },
+    {
+      id: "564675765756765756",
+      date: "2/5/2021",
+      author: {
+        picture: "https://styles.redditmedia.com/t5_2zmfe/styles/communityIcon_k6po5keenhq61.png?width=256&s=60ef13f941680e157b2166526b7d8458ef36d439",
+        username: "saadmen",
+      },
+      upload: "https://i.redd.it/7jm776qo9kw61.png",
     }
   ]);
 
