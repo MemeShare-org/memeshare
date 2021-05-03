@@ -4,6 +4,8 @@ export const LogoDiv = styled.div`
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	position: fixed;
+	left: 10px;
 
 	img {
 		cursor: pointer;

@@ -8,6 +8,10 @@ export const TopbarDiv = styled.div`
   align-items: center;
   height: 80px;
 
+  .header {
+    
+  }
+
   input {
     font-size: 18px;
     position: fixed;
