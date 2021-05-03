@@ -20,7 +20,7 @@ export const FriendsListDiv = styled.div`
 
 export const FriendsDiv = styled.div`
   width: 30vh;
-  height: 50vh;
+  height: 70vh;
   overflow: auto;
   
   &::-webkit-scrollbar {

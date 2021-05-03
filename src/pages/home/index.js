@@ -13,13 +13,55 @@ const Home = () => {
       username: "Jack",
     },
     {
-      picture: "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg",
+      picture:
+        "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg",
+      username: "Lara",
+    },
+    {
+      picture:
+        "https://images.pexels.com/photos/3993416/pexels-photo-3993416.jpeg",
+      username: "Steven",
+    },
+    {
+      picture:
+        "https://images.pexels.com/photos/4693311/pexels-photo-4693311.jpeg",
+      username: "Erica",
+    },
+    {
+      picture:
+        "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg",
       username: "Michel",
     },
     {
-      picture: "https://images.pexels.com/photos/1759530/pexels-photo-1759530.jpeg",
+      picture:
+        "https://images.pexels.com/photos/4005374/pexels-photo-4005374.jpeg",
+      username: "Lexi",
+    },
+    {
+      picture:
+        "https://images.pexels.com/photos/1759530/pexels-photo-1759530.jpeg",
       username: "Billy",
-    }
+    },
+    {
+      picture:
+        "https://images.pexels.com/photos/5970737/pexels-photo-5970737.jpeg",
+      username: "Pierson",
+    },
+    {
+      picture:
+        "https://images.pexels.com/photos/4015706/pexels-photo-4015706.jpeg",
+      username: "James",
+    },
+    {
+      picture:
+        "https://images.pexels.com/photos/4499805/pexels-photo-4499805.jpeg",
+      username: "Stefanie",
+    },
+    {
+      picture:
+        "https://images.pexels.com/photos/594610/pexels-photo-594610.jpeg",
+      username: "Brent",
+    },
   ]);
   const [posts] = useState([
     {
