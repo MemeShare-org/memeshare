@@ -5,7 +5,7 @@ import { FriendsListDiv, FriendsDiv } from "./style";
 const FriendsList = ({ friends }) => (
   <FriendsListDiv>
     <h1>Friends list</h1>
-    <span>Online</span>
+    <label>Online</label>
     <FriendsDiv>
       {friends.map((friend, index) => (
         <Friend key={index} friend={friend} />

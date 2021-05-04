@@ -1,11 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useContext, useState, useEffect } from "react";
+import UserContext from "../../context/userContext";
 import Loader from "../../components/loader";
 import Topbar from "../../components/topbar/index";
+import ProfileCard from "../../components/profile-card/index";
 import FriendsList from "../../components/friends-list/index";
 import Post from "../../components/post/index";
 import { LoaderDiv, HomeDiv, PostsDiv } from "./style";
 
 const Home = () => {
+  const { user, setUser } = useContext(UserContext);
   const [loading, setLoading] = useState(true);
   const [friends] = useState([
     {
@@ -61,7 +64,7 @@ const Home = () => {
       picture:
         "https://images.pexels.com/photos/594610/pexels-photo-594610.jpeg",
       username: "Brent",
-    }
+    },
   ]);
   const [posts] = useState([
     {
@@ -109,6 +112,7 @@ const Home = () => {
       ) : (
         <>
           <Topbar />
+          <ProfileCard user={user}/>
           <FriendsList friends={friends} />
           {posts.length ? (
             <PostsDiv>

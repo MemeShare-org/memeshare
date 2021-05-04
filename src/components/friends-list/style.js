@@ -13,7 +13,7 @@ export const FriendsListDiv = styled.div`
     color: gold;
   }
 
-  span {
+  label {
     text-align: left;
     color: #5d7290;
     margin: 5px 0px 10px 0px
