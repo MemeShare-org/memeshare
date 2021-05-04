@@ -61,7 +61,7 @@ const Home = () => {
       picture:
         "https://images.pexels.com/photos/594610/pexels-photo-594610.jpeg",
       username: "Brent",
-    },
+    }
   ]);
   const [posts] = useState([
     {

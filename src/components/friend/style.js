@@ -4,10 +4,11 @@ export const FriendDiv = styled.div`
   display: flex;
   align-items: center;
   margin: 5px;
+  padding-bottom: 8px;
 
   img {
-    width: 50px;
-    height: 50px;
+    width: 36px;
+    height: 36px;
     border-radius: 50px;
   }
 
@@ -15,6 +16,8 @@ export const FriendDiv = styled.div`
     font-size: 20px;
     color: white;
     cursor: pointer;
+    margin-top: auto;
+    margin-bottom: auto;
     margin-left: 10px;
   }
 `;
