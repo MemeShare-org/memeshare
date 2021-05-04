@@ -1,19 +1,13 @@
 import React from "react";
-import { FriendsListDiv, FriendsDiv, FriendDiv } from "./style";
+import Friend from "../friend/index";
+import { FriendsListDiv, FriendsDiv } from "./style";
 
 const FriendsList = ({ friends }) => (
   <FriendsListDiv>
     <h1>Friends list</h1>
     <FriendsDiv>
       {friends.map((friend, index) => (
-        <FriendDiv key={index}>
-          <img
-            src={friend.picture}
-            title={friend.username}
-            alt={friend.username}
-          />
-          <span>{friend.username}</span>
-        </FriendDiv>
+        <Friend key={index} friend={friend} />
       ))}
     </FriendsDiv>
   </FriendsListDiv>
