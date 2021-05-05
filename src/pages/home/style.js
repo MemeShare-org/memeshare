@@ -12,6 +12,12 @@ export const HomeDiv = styled.div`
   flex-direction: column;
 `;
 
+export const PCDiv = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 10px;
+`;
+
 export const PostsDiv = styled.div`
   display: flex;
   flex-direction: column;
@@ -19,5 +25,3 @@ export const PostsDiv = styled.div`
   align-items: center;
   margin-top: 20vh;
 `;
-
-

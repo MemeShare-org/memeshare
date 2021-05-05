@@ -3,7 +3,6 @@ import styled from "styled-components";
 export const ProfileCardDiv = styled.div`
   position: fixed;
   top: 20vh;
-  right: 15px;
   display: flex;
   flex-direction: column;
   background-color: #242c37;

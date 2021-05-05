@@ -5,7 +5,7 @@ import Topbar from "../../components/topbar/index";
 import ProfileCard from "../../components/profile-card/index";
 import FriendsList from "../../components/friends-list/index";
 import Post from "../../components/post/index";
-import { LoaderDiv, HomeDiv, PostsDiv } from "./style";
+import { LoaderDiv, HomeDiv, PCDiv, PostsDiv } from "./style";
 
 const Home = () => {
   const { user, setUser } = useContext(UserContext);
@@ -111,8 +111,10 @@ const Home = () => {
         </LoaderDiv>
       ) : (
         <>
-          <Topbar />
-          <ProfileCard user={user}/>
+          <Topbar user={user} setUser={setUser} />
+          <PCDiv>
+            <ProfileCard user={user} />
+          </PCDiv>
           <FriendsList friends={friends} />
           {posts.length ? (
             <PostsDiv>
@@ -124,7 +126,7 @@ const Home = () => {
                   Author={post.author}
                   Upload={post.upload}
                 />
-              ))}
+              ))} 
             </PostsDiv>
           ) : (
             <h1>your blabla is empty</h1>
