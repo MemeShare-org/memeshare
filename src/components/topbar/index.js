@@ -4,7 +4,7 @@ import Input from "../input";
 import TopbarAccount from "./topbar-account";
 import { TopbarDiv, ScrollTopbar } from "./style";
 
-const Topbar = () => {
+const Topbar = ({ user, setUser }) => {
   const [isScrolling, SetIsScrolling] = useState(false);
 
   useEffect(() => {
@@ -23,13 +23,13 @@ const Topbar = () => {
         <ScrollTopbar>
           <Logo />
           <Input Title='Search' Type='search' />
-          <TopbarAccount />
+          <TopbarAccount user={user} setUser={setUser}  />
         </ScrollTopbar>
       ) : (
         <TopbarDiv>
           <Logo />
           <Input Title='Search' Type='search' />
-          <TopbarAccount />
+          <TopbarAccount user={user} setUser={setUser} />
         </TopbarDiv>
       )}
     </div>
