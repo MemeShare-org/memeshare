@@ -11,7 +11,7 @@ import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 
 const StyledMenu = withStyles({
   paper: {
-    border: "none",
+    border: "1px solid #0b0e11",
     backgroundColor: "#242c37",
     color: "white",
   },
