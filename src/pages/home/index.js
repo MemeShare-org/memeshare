@@ -100,6 +100,7 @@ const Home = () => {
   ]);
 
   useEffect(() => {
+    document.title= 'MemeShare | Home';
     setTimeout(() => setLoading(false), 1000);
   }, []);
 

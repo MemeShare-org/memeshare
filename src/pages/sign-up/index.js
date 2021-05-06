@@ -9,6 +9,7 @@ const Signin = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    document.title= 'MemeShare | Sign up';
     setTimeout(() => setLoading(false), 1000);
   }, []);
 
