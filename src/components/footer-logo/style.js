@@ -21,9 +21,5 @@ export const FooterLogoDiv = styled.div`
 
 	@media screen and (max-width: 768px) {
 		top: 10px;
-		right: 25%;
-		img {
-			margin-left: 50px;
-		}
 	}
 `;

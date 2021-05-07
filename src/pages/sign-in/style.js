@@ -8,7 +8,6 @@ export const SigninDiv = styled.div`
 	align-items: center;
 `;
 
-
 export const SigninFooter = styled.div`
 	position: fixed;
 	bottom 50px;

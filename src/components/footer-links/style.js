@@ -18,7 +18,6 @@ export const LinksDiv = styled.div`
 
 	@media screen and (max-width: 768px) {
 		bottom: 10px;
-		right: 25%;
 	}
 `;
 
