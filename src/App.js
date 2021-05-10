@@ -1,5 +1,6 @@
-import React, { useState, useMemo } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
+import { isExpired, decodeToken } from "react-jwt";
 import UserContext from "./context/userContext";
 import { ToastContainer } from "react-toastify";
 import Home from "./pages/home/index";
@@ -9,9 +10,17 @@ import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
 
 const App = () => {
-  const [user, setUser] = useState();
+  const [user, setUser] = useState(decodeToken(localStorage.getItem('token')));
+  const isTokenExpired = isExpired(localStorage.getItem("token"));
 
   const UserProvider = useMemo(() => ({ user, setUser }), [user, setUser]);
+
+  useEffect(() => {
+    if (isTokenExpired) {
+      localStorage.setItem("token", "");
+      setUser();
+    }
+  }, [isTokenExpired]);
 
   return (
     <div className='App'>

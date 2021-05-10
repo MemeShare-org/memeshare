@@ -1,5 +1,5 @@
-import React, { useContext } from "react";
-import UserContext from "../../context/userContext";
+import React from "react";
+import signin from "../../actions/signin";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import Button from "../button";
@@ -16,49 +16,41 @@ const SigninSchema = Yup.object().shape({
     .required("Required"),
 });
 
-const SignInForm = () => {
-  const { setUser } = useContext(UserContext);
-
-  return (
-    <SigninFormDiv>
-      <SigninMessage>
-        <h2>Welcome,</h2>
-        <p>Sign in with your username and password.</p>
-      </SigninMessage>
-      <Formik
-        initialValues={{ username: "", password: "" }}
-        validationSchema={SigninSchema}
-        onSubmit={(values, { setSubmitting }) => {
-          setSubmitting(false);
-		  setUser(values);
-        }}>
-        {({ errors, touched, isSubmitting }) => (
-          <Form>
-            <Field
-              className={
-                errors.username && touched.username ? "error" : "succes"
-              }
-              type='username'
-              name='username'
-              placeholder='Username'
-            />
-            <Field
-              className={
-                errors.password && touched.password ? "error" : "succes"
-              }
-              type='password'
-              name='password'
-              placeholder='Password'
-            />
-            <div>
-              <a href='/sign-up'>I don't have an account</a>
-            </div>
-            <Button Title='Sign in' Type='submit' Disable={isSubmitting} />
-          </Form>
-        )}
-      </Formik>
-    </SigninFormDiv>
-  );
-};
+const SignInForm = () => (
+  <SigninFormDiv>
+    <SigninMessage>
+      <h2>Welcome,</h2>
+      <p>Sign in with your username and password.</p>
+    </SigninMessage>
+    <Formik
+      initialValues={{ username: "", password: "" }}
+      validationSchema={SigninSchema}
+      onSubmit={(values, { resetForm, setSubmitting }) => {
+        setSubmitting(false);
+        signin({ values, resetForm });
+      }}>
+      {({ errors, touched, isSubmitting }) => (
+        <Form>
+          <Field
+            className={errors.username && touched.username ? "error" : "succes"}
+            type='username'
+            name='username'
+            placeholder='Username'
+          />
+          <Field
+            className={errors.password && touched.password ? "error" : "succes"}
+            type='password'
+            name='password'
+            placeholder='Password'
+          />
+          <div>
+            <a href='/sign-up'>I don't have an account</a>
+          </div>
+          <Button Title='Sign in' Type='submit' Disable={isSubmitting} />
+        </Form>
+      )}
+    </Formik>
+  </SigninFormDiv>
+);
 
 export default SignInForm;
