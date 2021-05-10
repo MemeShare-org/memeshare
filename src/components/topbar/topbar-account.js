@@ -1,5 +1,7 @@
 import React, { useState } from "react";
+import { toast } from 'react-toastify';
 import { withStyles } from "@material-ui/core/styles";
+import signout from "../../actions/signout";
 import IconButton from "@material-ui/core/IconButton";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
@@ -81,7 +83,7 @@ const TopbarAccount = ({ user, setUser }) => {
             </ListItemIcon>
             <ListItemText primary='Profile' />
           </StyledMenuItem>
-          <StyledMenuItem onClick={() => setUser()}>
+          <StyledMenuItem onClick={() => signout({ setAnchorEl, toast })}>
             <ListItemIcon>
               <ExitToAppIcon style={{ color: "white" }} fontSize='small' />
             </ListItemIcon>
