@@ -1,4 +1,5 @@
 import React from "react";
+import signup from "../../actions/signup";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import Button from "../button";
@@ -26,8 +27,9 @@ const SignUpForm = () => (
     <Formik
       initialValues={{ username: "", email: "", password: "" }}
       validationSchema={SignupSchema}
-      onSubmit={(values, { setSubmitting }) => {
+      onSubmit={(values, { setSubmitting, resetForm }) => {
         setSubmitting(false);
+        signup({ values, resetForm })
       }}>
       {({ errors, touched, isSubmitting }) => (
         <Form>
