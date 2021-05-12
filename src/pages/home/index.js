@@ -3,12 +3,14 @@ import UserContext from "../../context/userContext";
 import Loader from "../../components/loader";
 import Topbar from "../../components/topbar/index";
 import ProfileCard from "../../components/profile-card/index";
+import ProfileModal from "../../components/profile-modal/index";
 import FriendsList from "../../components/friends-list/index";
 import Post from "../../components/post/index";
 import { LoaderDiv, HomeDiv, PCDiv, PostsDiv } from "./style";
 
 const Home = () => {
   const { user, setUser } = useContext(UserContext);
+  const [IsOpen, setIsOpen] = useState(false);
   const [loading, setLoading] = useState(true);
   const [friends] = useState([
     {
@@ -100,7 +102,7 @@ const Home = () => {
   ]);
 
   useEffect(() => {
-    document.title= 'MemeShare | Home';
+    document.title = "MemeShare | Home";
     setTimeout(() => setLoading(false), 1000);
   }, []);
 
@@ -114,7 +116,8 @@ const Home = () => {
         <>
           <Topbar user={user} setUser={setUser} />
           <PCDiv>
-            <ProfileCard user={user} />
+            <ProfileCard user={user} setIsOpen={setIsOpen} />
+            <ProfileModal IsOpen={IsOpen} setIsOpen={setIsOpen} />
           </PCDiv>
           <FriendsList friends={friends} />
           {posts.length ? (
@@ -127,7 +130,7 @@ const Home = () => {
                   Author={post.author}
                   Upload={post.upload}
                 />
-              ))} 
+              ))}
             </PostsDiv>
           ) : (
             <h1>your blabla is empty</h1>

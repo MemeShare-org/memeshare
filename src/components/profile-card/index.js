@@ -1,7 +1,7 @@
 import React from "react";
 import { ProfileCardDiv, ProfileDiv, ProfileStats, ProfileBio } from "./style";
 
-const ProfileCard = ({ user }) => (
+const ProfileCard = ({ user, setIsOpen }) => (
   <ProfileCardDiv>
     <ProfileDiv>
       <img
@@ -10,6 +10,7 @@ const ProfileCard = ({ user }) => (
         }
         title={user.username}
         alt={user.username}
+        onClick={() => setIsOpen(true)}
       />
       <span>{user.username}</span>
     </ProfileDiv>
