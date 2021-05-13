@@ -46,14 +46,15 @@ export const AuthorDiv = styled.div`
   img {
     margin: 0px;
     border-radius: 50px;
+    cursor: pointer;
     width: 50px;
     height: 50px;
   }
 
   span {
     font-size: 20px;
-    color: white;
     cursor: pointer;
+    color: white;
     margin-left: 10px;
   }
 `;

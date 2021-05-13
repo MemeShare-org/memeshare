@@ -6,13 +6,13 @@ const Post = ({ Id, Date, Author, Upload }) => {
   return (
     <PostDiv>
       <TopPostDiv>
-        <AuthorDiv>
+        <AuthorDiv onClick={() => window.location.href = `/u/${Author.username}`}>
           <img
             src={Author.picture}
             alt={Author.username}
             title={Author.username}
           />
-          <span onClick={() => window.location.href = `/u/${Author.username}`}>{Author.username}</span>
+          <span>{Author.username}</span>
         </AuthorDiv>
         <PostDetails Id={Id} />
       </TopPostDiv>
