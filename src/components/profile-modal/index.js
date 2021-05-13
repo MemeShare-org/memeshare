@@ -2,7 +2,8 @@ import React from "react";
 import Modal from "react-modal";
 import Input from "../input";
 import Button from "../button";
-import { Title, FormDiv, ButtonsDiv } from "./style";
+import ClearIcon from '@material-ui/icons/Clear';
+import { TopDiv, FormDiv, ButtonsDiv } from "./style";
 
 const ProfileModale = ({ IsOpen, setIsOpen }) => {
   const customStyles = {
@@ -36,7 +37,10 @@ const ProfileModale = ({ IsOpen, setIsOpen }) => {
         onRequestClose={closeModal}
         style={customStyles}
         contentLabel='Example Modal'>
-        <Title>Edit Profile</Title>
+      <TopDiv>
+        <h2>Edit Profile</h2>
+        <ClearIcon onClick={() => closeModal()} /> 
+      </TopDiv>
         <FormDiv>
           <div>
             <label style={customStyles.label}>Avatar URL</label>
