@@ -16,12 +16,14 @@ export const TopDiv = styled.div`
 
 export const FormDiv = styled.div`
   margin-top: 10px;
+  margin-right: 10px;
+  
   label {
     color: #5d7290;
   }
 
   input, textarea {
-      width: 90%;
+      width: 100%;
   }
 `;
 
