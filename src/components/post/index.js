@@ -12,7 +12,7 @@ const Post = ({ Id, Date, Author, Upload }) => {
             alt={Author.username}
             title={Author.username}
           />
-          <span onClick={() => window.location.href = `/profile/${Author.username}`}>{Author.username}</span>
+          <span onClick={() => window.location.href = `/u/${Author.username}`}>{Author.username}</span>
         </AuthorDiv>
         <PostDetails Id={Id} />
       </TopPostDiv>
