@@ -1,5 +1,5 @@
 import React from "react";
-import signup from "../../actions/signup";
+import signup from "../../actions/auth/signup";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import Button from "../button";

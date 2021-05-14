@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { toast } from 'react-toastify';
 import { withStyles } from "@material-ui/core/styles";
-import signout from "../../actions/signout";
+import signout from "../../actions/auth/signout";
 import IconButton from "@material-ui/core/IconButton";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
