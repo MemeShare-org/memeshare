@@ -45,6 +45,7 @@ export const ProfileStats = styled.div`
 `;
 
 export const ProfileBio = styled.div`
-  margin: 2.5vh 10px 0px 10px;
+  margin: 15px;
+  overflow-wrap: break-word;
   color: white;
 `;
