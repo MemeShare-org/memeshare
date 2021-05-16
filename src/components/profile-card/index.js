@@ -24,7 +24,7 @@ const ProfileCard = ({ user, setIsOpen }) => (
       </span>
     </ProfileStats>
     <ProfileBio>
-      {user.bio || "The bio is empty."}
+      {user.bio}
     </ProfileBio>
   </ProfileCardDiv>
 );

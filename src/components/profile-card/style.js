@@ -8,7 +8,7 @@ export const ProfileCardDiv = styled.div`
   background-color: #242c37;
   border-radius: 10px;
   width: 300px;
-  height: 250px;
+  height: auto;
   @media screen and (max-width: 768px) {
     display: none;
   }
@@ -45,7 +45,7 @@ export const ProfileStats = styled.div`
 `;
 
 export const ProfileBio = styled.div`
-  margin: 15px;
+  margin: 15px 15px 20px 15px;
   overflow-wrap: break-word;
   color: white;
 `;
