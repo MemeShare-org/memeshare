@@ -16,14 +16,15 @@ export const TopDiv = styled.div`
 
 export const FormDiv = styled.div`
   margin-top: 10px;
-  margin-right: 10px;
-  
+  margin-right: 15px;
+
   label {
     color: #5d7290;
   }
 
-  input, textarea {
-      width: 100%;
+  input,
+  textarea {
+    width: 100%;
   }
 `;
 
@@ -33,13 +34,13 @@ export const ButtonsDiv = styled.div`
   align-items: center;
 
   button {
-      margin: 10px 10px 10px 5px;
+    margin: 10px 10px 10px 5px;
   }
 
   span {
-      text-decoration: underline;
-      cursor: pointer;
-      color: white;
-      margin: 10px;
+    text-decoration: underline;
+    cursor: pointer;
+    color: white;
+    margin: 10px;
   }
 `;
