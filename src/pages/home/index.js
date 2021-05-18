@@ -1,5 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import UserContext from "../../context/userContext";
+import getUser from "../../actions/getUser";
 import Loader from "../../components/loader";
 import Topbar from "../../components/topbar/index";
 import ProfileCard from "../../components/profile-card/index";
@@ -10,6 +11,7 @@ import { LoaderDiv, HomeDiv, PCDiv, PostsDiv } from "./style";
 
 const Home = () => {
   const { user, setUser } = useContext(UserContext);
+  const [profile, setProfile] = useState({});
   const [IsOpen, setIsOpen] = useState(false);
   const [loading, setLoading] = useState(true);
   const [friends] = useState([
@@ -101,10 +103,15 @@ const Home = () => {
     },
   ]);
 
+  var id = user.username;
+
   useEffect(() => {
     document.title = "MemeShare | Home";
-    setTimeout(() => setLoading(false), 1000);
-  }, []);
+    getUser({ id, setProfile });
+    setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+  }, [id, setProfile]);
 
   return (
     <HomeDiv>
@@ -116,8 +123,13 @@ const Home = () => {
         <>
           <Topbar user={user} setUser={setUser} />
           <PCDiv>
-            <ProfileCard user={user} setIsOpen={setIsOpen} />
-            <ProfileModal IsOpen={IsOpen} setIsOpen={setIsOpen} />
+            <ProfileCard user={profile} setIsOpen={setIsOpen} />
+            <ProfileModal
+              user={profile}
+              setUser={setProfile}
+              IsOpen={IsOpen}
+              setIsOpen={setIsOpen}
+            />
           </PCDiv>
           <FriendsList friends={friends} />
           {posts.length ? (
@@ -133,7 +145,7 @@ const Home = () => {
               ))}
             </PostsDiv>
           ) : (
-            <h1>your blabla is empty</h1>
+            <h1>Your feed is empty</h1>
           )}
         </>
       )}

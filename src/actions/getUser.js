@@ -1,9 +1,9 @@
 import API from "../api/api";
 
-const getUser = ({ id, setUser }) => {
+const getUser = ({ id, setProfile }) => {
   API.get(`/user/${id}`)
     .then((res) => {
-      setUser(res.data);
+      setProfile(res.data);
     })
     .catch(err => err);
 };
