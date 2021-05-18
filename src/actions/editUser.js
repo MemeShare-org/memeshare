@@ -7,8 +7,9 @@ const editUser = ({ id, inputValues, closeModal }) => {
         { "propName": "email", "value": inputValues.email },
         { "propName": "bio", "value": inputValues.bio }
     ])
-        .then(() => {
+        .then(res => {
             closeModal();
+            localStorage.setItem('token', res.data.token);
             window.location.href = '/';
         })
         .catch(err => err)
