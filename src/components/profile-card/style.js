@@ -45,7 +45,10 @@ export const ProfileStats = styled.div`
 `;
 
 export const ProfileBio = styled.div`
-  margin: 15px 15px 20px 15px;
+  font-size: 15px;
+  text-align: left;
+  margin: 15px 0px 20px 15px;
+  max-width: 300px;
   overflow-wrap: break-word;
   color: white;
 `;
