@@ -1,12 +1,15 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import PostDetails from "./post-details";
 import { PostDiv, TopPostDiv, AuthorDiv } from "./style";
 
 const Post = ({ Id, Date, Author, Upload }) => {
+  const history = useHistory();
+
   return (
     <PostDiv>
       <TopPostDiv>
-        <AuthorDiv onClick={() => window.location.href = `/u/${Author.username}`}>
+        <AuthorDiv onClick={() => history.push(`/u/${Author.username}`)}>
           <img
             src={Author.picture}
             alt={Author.username}

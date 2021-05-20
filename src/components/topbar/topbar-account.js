@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { toast } from 'react-toastify';
+import { useHistory } from "react-router-dom";
+import { toast } from "react-toastify";
 import { withStyles } from "@material-ui/core/styles";
 import signout from "../../actions/auth/signout";
 import IconButton from "@material-ui/core/IconButton";
@@ -45,6 +46,7 @@ const StyledMenuItem = withStyles(() => ({
 }))(MenuItem);
 
 const TopbarAccount = ({ user, setUser }) => {
+  const history = useHistory();
   const [anchorEl, setAnchorEl] = useState(null);
 
   const handleClick = (event) => {
@@ -71,10 +73,7 @@ const TopbarAccount = ({ user, setUser }) => {
         open={Boolean(anchorEl)}
         onClose={handleClose}>
         <div>
-          <StyledMenuItem
-            onClick={() =>
-              (window.location.href = `/profile/${user.username}`)
-            }>
+          <StyledMenuItem onClick={() => history.push(`/u/${user.username}`)}>
             <ListItemIcon>
               <SupervisorAccountIcon
                 style={{ color: "white" }}
