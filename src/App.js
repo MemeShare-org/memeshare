@@ -4,13 +4,14 @@ import { isExpired, decodeToken } from "react-jwt";
 import UserContext from "./context/userContext";
 import { ToastContainer } from "react-toastify";
 import Home from "./pages/home/index";
+import Profile from "./pages/profile/index";
 import Signup from "./pages/sign-up/index";
 import Signin from "./pages/sign-in/index";
 import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
 
 const App = () => {
-  const [user, setUser] = useState(decodeToken(localStorage.getItem('token')));
+  const [user, setUser] = useState(decodeToken(localStorage.getItem("token")));
   const isTokenExpired = isExpired(localStorage.getItem("token"));
 
   const UserProvider = useMemo(() => ({ user, setUser }), [user, setUser]);
@@ -32,6 +33,9 @@ const App = () => {
           </Route>
           <Route path='/home'>
             {user ? <Home /> : <Redirect to='/sign-in' />}
+          </Route>
+          <Route path='/u/:id'>
+            {user ? <Profile /> : <Redirect to='/sign-in' />}
           </Route>
           <Route path='/sign-up'>
             {user ? <Redirect to='/' /> : <Signup />}
