@@ -2,14 +2,27 @@ import React, { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router";
 import UserContext from "../../context/userContext";
 import getUser from "../../actions/getUser";
+import Loader from "../../components/loader";
 import Topbar from "../../components/topbar/index";
 import FriendsList from "../../components/friends-list/index";
-import { ProfileDiv, TopProfileDiv, ProfileBio } from "./style";
+import ProfileModal from "../../components/profile-modal/index";
+import ProfileMenu from "../../components/profile-menu";
+import {
+  LoaderDiv,
+  ProfileDiv,
+  ProfileCardDiv,
+  Div,
+  TopProfileDiv,
+  ProfileStats,
+  ProfileBio,
+} from "./style";
 
 const Profile = () => {
   const { id } = useParams();
 
   const { user, setUser } = useContext(UserContext);
+  const [loading, setLoading] = useState(true);
+  const [IsOpen, setIsOpen] = useState(false);
   const [profile, setProfile] = useState({});
   const [friends] = useState([
     {
@@ -69,28 +82,60 @@ const Profile = () => {
   ]);
 
   useEffect(() => {
-    getUser({ id, setProfile });
+    getUser({ id, setProfile, setLoading });
+
     document.title = `MemeShare | ${id}`;
   }, [id, setProfile]);
 
   return (
     <div>
-      <Topbar user={user} setUser={setUser} />
-      <FriendsList friends={friends} />
-
-      <ProfileDiv>
+      {loading ? (
+        <LoaderDiv>
+          <Loader loading={loading} />
+        </LoaderDiv>
+      ) : (
         <div>
-          <TopProfileDiv>
-            <img
-              src={profile.picture}
-              alt={profile.username}
-              title={profile.username}
-            />
-            <span>{profile.username}</span>
-          </TopProfileDiv>
-          <ProfileBio>{profile.bio}</ProfileBio>
+          <Topbar user={user} setUser={setUser} />
+          <FriendsList friends={friends} />
+          <ProfileModal
+            user={profile}
+            setUser={setProfile}
+            IsOpen={IsOpen}
+            setIsOpen={setIsOpen}
+          />
+          <ProfileDiv>
+            <ProfileCardDiv>
+              <Div>
+                <TopProfileDiv>
+                  <img
+                    src={profile.picture}
+                    alt={profile.username}
+                    title={profile.username}
+                  />
+                  <span>{profile.username}</span>
+                </TopProfileDiv>
+                <ProfileMenu
+                  user={user}
+                  profile={profile}
+                  setIsOpen={setIsOpen}
+                />
+              </Div>
+              <ProfileStats>
+                <span>
+                  <number>0</number> posts
+                </span>
+                <span>
+                  <number>0</number> followers
+                </span>
+                <span>
+                  <number>0</number> following
+                </span>
+              </ProfileStats>
+              <ProfileBio>{profile.bio || "The bio is empty."}</ProfileBio>
+            </ProfileCardDiv>
+          </ProfileDiv>
         </div>
-      </ProfileDiv>
+      )}
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import editUser from "../../actions/editUser";
 import Modal from "react-modal";
 import Input from "../input";
@@ -13,6 +13,15 @@ const ProfileModale = ({ user, IsOpen, setIsOpen }) => {
     bio: user.bio,
     picture: user.picture,
   });
+
+  useEffect(() => {
+    setInputValues({
+      username: user.username,
+      email: user.email,
+      bio: user.bio,
+      picture: user.picture,
+    });
+  }, [user]);
 
   const customStyles = {
     overlay: {

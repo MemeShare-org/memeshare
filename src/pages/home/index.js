@@ -107,10 +107,7 @@ const Home = () => {
 
   useEffect(() => {
     document.title = "MemeShare | Home";
-    getUser({ id, setProfile });
-    setTimeout(() => {
-      setLoading(false);
-    }, 1000);
+    getUser({ id, setProfile, setLoading });
   }, [id, setProfile]);
 
   return (
