@@ -73,7 +73,11 @@ const ProfileMenu = ({ user, profile, setIsOpen }) => {
         onClose={handleClose}>
         {user.username === profile.username || user.role === "admin" ? (
           <div>
-            <StyledMenuItem onClick={() => setIsOpen(true)}>
+            <StyledMenuItem
+              onClick={() => {
+                document.body.style.overflow = "hidden";
+                setIsOpen(true);
+              }}>
               <ListItemIcon>
                 <EditIcon fontSize='small' style={{ color: "white" }} />
               </ListItemIcon>

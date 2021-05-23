@@ -12,7 +12,10 @@ const ProfileCard = ({ user, setIsOpen }) => {
           src={user.picture}
           title={user.username}
           alt={user.username}
-          onClick={() => setIsOpen(true)}
+          onClick={() => {
+            document.body.style.overflow = "hidden";
+            setIsOpen(true);
+          }}
         />
         <span onClick={() => history.push(`/u/${user.username}`)}>
           {user.username}

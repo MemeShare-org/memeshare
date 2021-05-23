@@ -44,6 +44,7 @@ const ProfileModale = ({ user, IsOpen, setIsOpen }) => {
   };
 
   function closeModal() {
+    document.body.style.overflow = "unset";
     setIsOpen(false);
   }
 
