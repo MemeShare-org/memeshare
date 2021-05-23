@@ -4,11 +4,13 @@ import UserContext from "../../context/userContext";
 import getUser from "../../actions/getUser";
 import Loader from "../../components/loader";
 import Topbar from "../../components/topbar/index";
+import ProfileCard from "../../components/profile-card/index";
 import FriendsList from "../../components/friends-list/index";
 import ProfileModal from "../../components/profile-modal/index";
 import ProfileMenu from "../../components/profile-menu";
 import {
   LoaderDiv,
+  PCDiv,
   ProfileDiv,
   ProfileCardDiv,
   Div,
@@ -96,13 +98,16 @@ const Profile = () => {
       ) : (
         <div>
           <Topbar user={user} setUser={setUser} />
+          <PCDiv>
+            <ProfileCard user={profile} setIsOpen={setIsOpen} />
+            <ProfileModal
+              user={profile}
+              setUser={setProfile}
+              IsOpen={IsOpen}
+              setIsOpen={setIsOpen}
+            />
+          </PCDiv>
           <FriendsList friends={friends} />
-          <ProfileModal
-            user={profile}
-            setUser={setProfile}
-            IsOpen={IsOpen}
-            setIsOpen={setIsOpen}
-          />
           <ProfileDiv>
             <ProfileCardDiv>
               <Div>

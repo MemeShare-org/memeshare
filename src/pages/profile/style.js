@@ -7,6 +7,12 @@ export const LoaderDiv = styled.div`
   align-items: center;
 `;
 
+export const PCDiv = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 10px;
+`;
+
 export const ProfileDiv = styled.div`
   display: flex;
   justify-content: center;
