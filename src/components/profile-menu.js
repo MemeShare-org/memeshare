@@ -75,13 +75,13 @@ const ProfileMenu = ({ user, profile, setIsOpen }) => {
           <div>
             <StyledMenuItem onClick={() => setIsOpen(true)}>
               <ListItemIcon>
-                <EditIcon fontSize='small' />
+                <EditIcon fontSize='small' style={{ color: "white" }} />
               </ListItemIcon>
               <ListItemText primary='Edit' />
             </StyledMenuItem>
             <StyledMenuItem>
               <ListItemIcon>
-                <DeleteIcon fontSize='small' />
+                <DeleteIcon fontSize='small' style={{ color: "white" }} />
               </ListItemIcon>
               <ListItemText primary='Delete' />
             </StyledMenuItem>
@@ -94,7 +94,7 @@ const ProfileMenu = ({ user, profile, setIsOpen }) => {
           onCopy={() => toast.success("Copied Successfully!")}>
           <StyledMenuItem>
             <ListItemIcon>
-              <LinkIcon fontSize='small' />
+              <LinkIcon fontSize='small' style={{ color: "white" }} />
             </ListItemIcon>
             <ListItemText primary='Share' />
           </StyledMenuItem>
