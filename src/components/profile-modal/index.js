@@ -29,7 +29,7 @@ const ProfileModale = ({ user, IsOpen, setIsOpen }) => {
     },
     content: {
       width: "25%",
-      height: "52%",
+      height: "50%",
       overflow: "hidden",
       top: "50%",
       left: "50%",
