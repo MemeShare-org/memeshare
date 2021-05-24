@@ -34,6 +34,11 @@ export const Div = styled.div`
   justify-content: space-between;
   align-items: center;
 
+  .follow-btn {
+    padding: 8px;
+    margin-left: 15px;
+  }
+
   svg {
     color: white;
   }
