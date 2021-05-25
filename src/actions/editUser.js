@@ -10,7 +10,7 @@ const editUser = ({ id, inputValues, closeModal }) => {
     .then((res) => {
       closeModal();
       localStorage.setItem("token", res.data.token);
-      window.location.href = "/";
+      window.location.reload();
     })
     .catch((err) => err);
 };
