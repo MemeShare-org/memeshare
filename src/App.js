@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useMemo } from "react";
-import { Switch, Route, Redirect, Prompt } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 import { isExpired, decodeToken } from "react-jwt";
 import UserContext from "./context/userContext";
 import { ToastContainer } from "react-toastify";

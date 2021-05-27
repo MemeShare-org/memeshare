@@ -1,4 +1,4 @@
-import API from "../api/api";
+import API from "../../api/api";
 
 const editUser = ({ id, inputValues, closeModal }) => {
   API.patch(`user/${id}`, [

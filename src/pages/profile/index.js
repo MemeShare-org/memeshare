@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router";
 import UserContext from "../../context/userContext";
-import getUser from "../../actions/getUser";
+import getUser from "../../actions/user/getUser";
 import Loader from "../../components/loader";
 import Topbar from "../../components/topbar/index";
 import ProfileCard from "../../components/profile-card/index";

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import editUser from "../../actions/editUser";
+import editUser from "../../actions/user/editUser";
 import Modal from "react-modal";
 import Input from "../input";
 import Button from "../button";

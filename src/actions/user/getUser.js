@@ -1,4 +1,4 @@
-import API from "../api/api";
+import API from "../../api/api";
 
 const getUser = ({ id, setProfile, setLoading }) => {
   API.get(`/user/${id}`)

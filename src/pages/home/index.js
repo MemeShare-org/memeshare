@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import UserContext from "../../context/userContext";
-import getUser from "../../actions/getUser";
+import getUser from "../../actions/user/getUser";
 import Loader from "../../components/loader";
 import Topbar from "../../components/topbar/index";
 import ProfileCard from "../../components/profile-card/index";
