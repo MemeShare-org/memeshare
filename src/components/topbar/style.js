@@ -8,10 +8,6 @@ export const TopbarDiv = styled.div`
   align-items: center;
   height: 80px;
 
-  .header {
-    
-  }
-
   input {
     font-size: 18px;
     position: fixed;
@@ -32,20 +28,17 @@ export const TopbarDiv = styled.div`
   }
 
   @media screen and (max-width: 768px) {
-    input {
-      width: 55%;
-      right: 20%;
+    .logo {
+      left: 2px;
     }
 
-    button {
-      position: fixed;
-      top: 10px;
-      right: 0px;
+    input {
+      width: 75%;
+      right: 2.5%;
     }
 
     svg {
-      font-size: 60px;
-      color: white;
+      display: none;
     }
 
     .header {
@@ -81,19 +74,21 @@ export const ScrollTopbar = styled.div`
     color: white;
   }
   @media screen and (max-width: 768px) {
+    padding: 5px;
+
+    .logo {
+      left: 2px;
+    }
+
     input {
-      width: 55%;
-      right: 20%;
+      width: 75%;
+      right: 2.5%;
     }
-    button {
-      position: fixed;
-      top: -5px;
-      right: 0px;
-    }
+
     svg {
-      font-size: 60px;
-      color: white;
+      display: none;
     }
+
     .header {
       display: none;
     }

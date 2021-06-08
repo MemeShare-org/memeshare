@@ -1,8 +1,10 @@
 import React, { useContext, useState, useEffect } from "react";
 import UserContext from "../../context/userContext";
 import getUser from "../../actions/user/getUser";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 import Loader from "../../components/loader";
 import Topbar from "../../components/topbar/index";
+import BottomBar from "../../components/bottombar";
 import ProfileCard from "../../components/profile-card/index";
 import ProfileModal from "../../components/profile-modal/index";
 import FriendsList from "../../components/friends-list/index";
@@ -103,6 +105,8 @@ const Home = () => {
     },
   ]);
 
+  const matches = useMediaQuery("(max-width:768px)");
+
   var id = user.username;
 
   useEffect(() => {
@@ -119,6 +123,7 @@ const Home = () => {
       ) : (
         <>
           <Topbar user={user} setUser={setUser} />
+          {matches ? <BottomBar /> : ""}
           <PCDiv>
             <ProfileCard user={profile} setIsOpen={setIsOpen} />
             <ProfileModal
