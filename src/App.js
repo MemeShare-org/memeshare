@@ -45,23 +45,25 @@ const App = () => {
     <div className='App'>
       <UserContext.Provider value={UserProvider}>
         <ToastContainer position='bottom-right' autoClose={1500} />
-        <Switch>
-          <Route exact path='/'>
-            {user ? <Redirect to='/home' /> : <Redirect to='/sign-in' />}
-          </Route>
-          <Route path='/home'>
-            {user ? <Home /> : <Redirect to='/sign-in' />}
-          </Route>
-          <Route path='/u/:id'>
-            {user ? <Profile /> : <Redirect to='/sign-in' />}
-          </Route>
-          <Route path='/sign-up'>
-            {user ? <Redirect to='/' /> : <Signup />}
-          </Route>
-          <Route path='/sign-in'>
-            {user ? <Redirect to='/' /> : <Signin />}
-          </Route>
-        </Switch>
+        <div className='routes'>
+          <Switch>
+            <Route exact path='/'>
+              {user ? <Redirect to='/home' /> : <Redirect to='/sign-in' />}
+            </Route>
+            <Route path='/home'>
+              {user ? <Home /> : <Redirect to='/sign-in' />}
+            </Route>
+            <Route path='/u/:id'>
+              {user ? <Profile /> : <Redirect to='/sign-in' />}
+            </Route>
+            <Route path='/sign-up'>
+              {user ? <Redirect to='/' /> : <Signup />}
+            </Route>
+            <Route path='/sign-in'>
+              {user ? <Redirect to='/' /> : <Signin />}
+            </Route>
+          </Switch>
+        </div>
       </UserContext.Provider>
     </div>
   );
