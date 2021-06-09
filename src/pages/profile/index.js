@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router";
+import API from "../../api/api";
 import UserContext from "../../context/userContext";
 import getUser from "../../actions/user/getUser";
 import Loader from "../../components/loader";
@@ -26,6 +27,7 @@ const Profile = () => {
   const [loading, setLoading] = useState(true);
   const [IsOpen, setIsOpen] = useState(false);
   const [profile, setProfile] = useState({});
+  const [userData, setUserData] = useState({});
   const [friends] = useState([
     {
       picture: "https://i.imgur.com/wRGlbCe_d.webp?maxwidth=760&fidelity=grand",
@@ -84,10 +86,15 @@ const Profile = () => {
   ]);
 
   useEffect(() => {
+    var username = user.username;
     getUser({ id, setProfile, setLoading });
 
+    API.get(`/user/${username}`)
+      .then((res) => setUserData(res.data))
+      .catch((err) => err);
+
     document.title = `MemeShare | ${id}`;
-  }, [id, setProfile]);
+  }, [id, user, setProfile]);
 
   return (
     <div>
@@ -99,10 +106,10 @@ const Profile = () => {
         <div>
           <Topbar user={user} setUser={setUser} />
           <PCDiv>
-            <ProfileCard user={profile} setIsOpen={setIsOpen} />
+            <ProfileCard user={userData} setIsOpen={setIsOpen} />
             <ProfileModal
-              user={profile}
-              setUser={setProfile}
+              user={userData}
+              setUser={setUserData}
               IsOpen={IsOpen}
               setIsOpen={setIsOpen}
             />
