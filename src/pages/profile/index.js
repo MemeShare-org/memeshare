@@ -118,7 +118,11 @@ const Profile = () => {
                     title={profile.username}
                   />
                   <span>{profile.username}</span>
-                  <button className='follow-btn'>Follow</button>
+                  {user.userId === profile._id ? (
+                    ""
+                  ) : (
+                    <button className='follow-btn'>Follow</button>
+                  )}
                 </TopProfileDiv>
                 <ProfileMenu
                   user={user}
