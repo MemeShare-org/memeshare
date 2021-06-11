@@ -87,11 +87,15 @@ const Profile = () => {
 
   useEffect(() => {
     var username = user.username;
+
     getUser({ id, setProfile, setLoading });
 
-    API.get(`/user/${username}`)
-      .then((res) => setUserData(res.data))
-      .catch((err) => err);
+    if (username === id) return;
+    else {
+      API.get(`/user/${username}`)
+        .then((res) => setUserData(res.data))
+        .catch((err) => err);
+    }
 
     document.title = `MemeShare | ${id}`;
   }, [id, user, setProfile]);
