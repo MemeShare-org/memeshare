@@ -100,6 +100,10 @@ const Profile = () => {
     document.title = `MemeShare | ${id}`;
   }, [id, user, setProfile]);
 
+  useEffect(() => {
+    if (user.username === id) setUserData(profile);
+  }, [id, user, profile]);
+
   return (
     <div>
       {loading ? (
