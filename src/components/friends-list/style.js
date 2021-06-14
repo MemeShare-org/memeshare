@@ -42,4 +42,11 @@ export const FriendsDiv = styled.div`
       background: #242c3785;
     }
   }
+
+  h2 {
+    display: flex;
+    align-items: center;
+    height: 55vh;
+    color: #fff;
+  }
 `;

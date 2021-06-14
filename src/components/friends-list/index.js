@@ -7,9 +7,11 @@ const FriendsList = ({ friends }) => (
     <h1>Friends list</h1>
     <label>Online</label>
     <FriendsDiv>
-      {friends.map((friend, index) => (
-        <Friend key={index} friend={friend} />
-      ))}
+      {friends.length ? (
+        friends.map((friend, index) => <Friend key={index} friend={friend} />)
+      ) : (
+        <h2>Your Friends list is empty</h2>
+      )}
     </FriendsDiv>
   </FriendsListDiv>
 );
