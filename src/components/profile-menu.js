@@ -8,7 +8,6 @@ import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
-import EditIcon from "@material-ui/icons/Edit";
 import DeleteIcon from "@material-ui/icons/Delete";
 import LinkIcon from "@material-ui/icons/Link";
 
@@ -71,28 +70,6 @@ const ProfileMenu = ({ user, profile, setIsOpen }) => {
         keepMounted
         open={Boolean(anchorEl)}
         onClose={handleClose}>
-        {user.username === profile.username || user.role === "admin" ? (
-          <div>
-            <StyledMenuItem
-              onClick={() => {
-                document.body.style.overflow = "hidden";
-                setIsOpen(true);
-              }}>
-              <ListItemIcon>
-                <EditIcon fontSize='small' style={{ color: "white" }} />
-              </ListItemIcon>
-              <ListItemText primary='Edit' />
-            </StyledMenuItem>
-            <StyledMenuItem>
-              <ListItemIcon>
-                <DeleteIcon fontSize='small' style={{ color: "white" }} />
-              </ListItemIcon>
-              <ListItemText primary='Delete' />
-            </StyledMenuItem>
-          </div>
-        ) : (
-          ""
-        )}
         <CopyToClipboard
           text={window.location.href}
           onCopy={() => toast.success("Copied Successfully!")}>
@@ -100,7 +77,7 @@ const ProfileMenu = ({ user, profile, setIsOpen }) => {
             <ListItemIcon>
               <LinkIcon fontSize='small' style={{ color: "white" }} />
             </ListItemIcon>
-            <ListItemText primary='Share' />
+            <ListItemText primary='Copy link' />
           </StyledMenuItem>
         </CopyToClipboard>
       </StyledMenu>
