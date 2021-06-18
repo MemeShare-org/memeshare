@@ -25,19 +25,18 @@ const App = () => {
   }, [isTokenExpired]);
 
   useEffect(() => {
-    const isClosed = window.closed;
-    var status;
+    // const isClosed = window.closed;
+    // var status;
 
     if (user) {
-      var id = user.userId;
-
-      if (isClosed) {
-        status = "offline";
-        changeStatus({ id, status });
-      } else {
-        status = "online";
-        changeStatus({ id, status });
-      }
+      // var id = user.userId;
+      // if (isClosed) {
+      //   status = "offline";
+      //   changeStatus({ id, status });
+      // } else {
+      //   status = "online";
+      //   changeStatus({ id, status });
+      // }
     }
   }, [user]);
 
