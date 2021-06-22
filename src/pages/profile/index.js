@@ -3,6 +3,8 @@ import { useParams } from "react-router";
 import API from "../../api/api";
 import UserContext from "../../context/userContext";
 import getUser from "../../actions/user/getUser";
+import followUser from "../../actions/user/followUser";
+import unFollowUser from "../../actions/user/unFollowUser";
 import Loader from "../../components/loader";
 import Topbar from "../../components/topbar/index";
 import ProfileCard from "../../components/profile-card/index";
@@ -29,6 +31,7 @@ const Profile = () => {
   const [profile, setProfile] = useState({});
   const [userData, setUserData] = useState({});
   const [friends] = useState([]);
+  const [isFollowed, setIsFollowed] = useState(false);
 
   useEffect(() => {
     var username = user.username;
@@ -48,6 +51,14 @@ const Profile = () => {
   useEffect(() => {
     if (user.username === id) setUserData(profile);
   }, [id, user, profile]);
+
+  useEffect(() => {
+    var followers = profile.followers || [];
+
+    followers.forEach((element) => {
+      if (element === user.userId) setIsFollowed(true);
+    });
+  }, [profile, user, isFollowed]);
 
   return (
     <div>
@@ -80,8 +91,32 @@ const Profile = () => {
                   <span>{profile.username}</span>
                   {user.userId === profile._id ? (
                     ""
+                  ) : isFollowed ? (
+                    <button
+                      className='follow-btn'
+                      onClick={() => {
+                        var followerId = profile._id;
+                        var followingId = userData._id;
+
+                        unFollowUser({
+                          setIsFollowed,
+                          followerId,
+                          followingId,
+                        });
+                      }}>
+                      Unfollow
+                    </button>
                   ) : (
-                    <button className='follow-btn'>Follow</button>
+                    <button
+                      className='follow-btn'
+                      onClick={() => {
+                        var followerId = profile._id;
+                        var followingId = userData._id;
+
+                        followUser({ setIsFollowed, followerId, followingId });
+                      }}>
+                      Follow
+                    </button>
                   )}
                 </TopProfileDiv>
                 <ProfileMenu

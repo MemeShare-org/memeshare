@@ -3,7 +3,7 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import { isExpired, decodeToken } from "react-jwt";
 import UserContext from "./context/userContext";
 import { ToastContainer } from "react-toastify";
-import changeStatus from "./actions/user/changeStatus";
+// import changeStatus from "./actions/user/changeStatus";
 import Home from "./pages/home/index";
 import Profile from "./pages/profile/index";
 import Signup from "./pages/sign-up/index";
