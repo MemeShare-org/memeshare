@@ -59,7 +59,7 @@ const Profile = () => {
       if (element === user.userId) setIsFollowed(true);
       else setIsFollowed(false);
     });
-  }, [profile, user, isFollowed]);
+  }, [profile, user]);
 
   return (
     <div>
