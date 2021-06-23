@@ -131,10 +131,10 @@ const Profile = () => {
                   <number>0</number> posts
                 </span>
                 <span>
-                  <number>0</number> followers
+                  <number>{(profile.followers || []).length}</number> followers
                 </span>
                 <span>
-                  <number>0</number> following
+                  <number>{(profile.following || []).length}</number> following
                 </span>
               </ProfileStats>
               <ProfileBio>{profile.bio || "The bio is empty."}</ProfileBio>

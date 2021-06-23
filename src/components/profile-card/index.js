@@ -26,10 +26,10 @@ const ProfileCard = ({ user, setIsOpen }) => {
           <code>0</code> posts
         </span>
         <span>
-          <code>{user.followers.length}</code> followers
+          <code>{(user.followers || []).length}</code> followers
         </span>
         <span>
-          <code>{user.following.length}</code> following
+          <code>{(user.following || []).length}</code> following
         </span>
       </ProfileStats>
       <ProfileBio>{user.bio}</ProfileBio>
