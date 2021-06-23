@@ -99,6 +99,17 @@ const Profile = () => {
                         var followerId = profile._id;
                         var followingId = userData._id;
 
+                        for (var i = 0; i < profile.followers.length; i++) {
+                          if (profile.followers[i] === user.userId) {
+                            profile.followers.splice(i, 1);
+                          }
+                        }
+
+                        for (i = 0; i < userData.following.length; i++) {
+                          if (userData.following[i] === profile._id) {
+                            userData.following.splice(i, 1);
+                          }
+                        }
                         unFollowUser({
                           setIsFollowed,
                           followerId,
@@ -113,6 +124,9 @@ const Profile = () => {
                       onClick={() => {
                         var followerId = profile._id;
                         var followingId = userData._id;
+
+                        profile.followers.push(user.userId);
+                        userData.following.push(profile._id);
 
                         followUser({ setIsFollowed, followerId, followingId });
                       }}>
