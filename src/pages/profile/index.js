@@ -33,6 +33,16 @@ const Profile = () => {
   const [friends] = useState([]);
   const [isFollowed, setIsFollowed] = useState(false);
 
+  const checkIfFollowed = ({ followers, user }) => {
+    for (var i = 0; i < followers.length; i++) {
+      if (followers[i]._id === user.userId) {
+        setIsFollowed(true);
+      } else {
+        setIsFollowed(false);
+      }
+    }
+  };
+
   useEffect(() => {
     var username = user.username;
 
@@ -55,11 +65,52 @@ const Profile = () => {
   useEffect(() => {
     var followers = profile.followers || [];
 
-    followers.forEach((element) => {
-      if (element === user.userId) setIsFollowed(true);
-      else setIsFollowed(false);
-    });
+    checkIfFollowed({ followers, user });
   }, [profile, user]);
+
+  const handleFollowing = () => {
+    var followerId = profile._id;
+    var followingId = userData._id;
+
+    var followerData = {
+      picture: profile.picture,
+      username: profile.username,
+      _id: profile._id,
+    };
+    var followingData = {
+      picture: userData.picture,
+      username: userData.username,
+      _id: userData._id,
+    };
+
+    profile.followers.push(followingData);
+    userData.following.push(followerData);
+
+    followUser({ setIsFollowed, followerId, followingId });
+  };
+
+  const handleUnFollowing = () => {
+    var followerId = profile._id;
+    var followingId = userData._id;
+
+    for (var i = 0; i < profile.followers.length; i++) {
+      if (profile.followers[i]._id === user.userId) {
+        profile.followers.splice(i, 1);
+      }
+    }
+
+    for (i = 0; i < userData.following.length; i++) {
+      if (userData.following[i]._id === profile._id) {
+        userData.following.splice(i, 1);
+      }
+    }
+
+    unFollowUser({
+      setIsFollowed,
+      followerId,
+      followingId,
+    });
+  };
 
   return (
     <div>
@@ -93,43 +144,11 @@ const Profile = () => {
                   {user.userId === profile._id ? (
                     ""
                   ) : isFollowed ? (
-                    <button
-                      className='follow-btn'
-                      onClick={() => {
-                        var followerId = profile._id;
-                        var followingId = userData._id;
-
-                        for (var i = 0; i < profile.followers.length; i++) {
-                          if (profile.followers[i] === user.userId) {
-                            profile.followers.splice(i, 1);
-                          }
-                        }
-
-                        for (i = 0; i < userData.following.length; i++) {
-                          if (userData.following[i] === profile._id) {
-                            userData.following.splice(i, 1);
-                          }
-                        }
-                        unFollowUser({
-                          setIsFollowed,
-                          followerId,
-                          followingId,
-                        });
-                      }}>
+                    <button className='follow-btn' onClick={handleUnFollowing}>
                       Unfollow
                     </button>
                   ) : (
-                    <button
-                      className='follow-btn'
-                      onClick={() => {
-                        var followerId = profile._id;
-                        var followingId = userData._id;
-
-                        profile.followers.push(user.userId);
-                        userData.following.push(profile._id);
-
-                        followUser({ setIsFollowed, followerId, followingId });
-                      }}>
+                    <button className='follow-btn' onClick={handleFollowing}>
                       Follow
                     </button>
                   )}
