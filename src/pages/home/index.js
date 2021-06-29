@@ -13,7 +13,7 @@ import {
   LoaderDiv,
   HomeDiv,
   PCDiv,
-  CoolDiv,
+  TopPostsDiv,
   PostsDiv,
   EmptyPostsTitle,
 } from "./style";
@@ -86,12 +86,12 @@ const Home = () => {
             />
           </PCDiv>
           <FriendsList friends={friends} />
-          <CoolDiv>
+          <TopPostsDiv>
             <div>
               <h2>Feed</h2>
-              <button>Post</button>
+              <button>New</button>
             </div>
-          </CoolDiv>
+          </TopPostsDiv>
           {posts.length ? (
             <PostsDiv>
               {posts.map((post, index) => (
