@@ -17,7 +17,7 @@ const PostPage = () => {
   const [IsOpen, setIsOpen] = useState(false);
   const [loading, setLoading] = useState(true);
   const [friends] = useState([]);
-  const [post, setPost] = useState({
+  const [post] = useState({
     id: id,
     date: "2/5/2021",
     author: {
