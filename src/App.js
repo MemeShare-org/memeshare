@@ -6,6 +6,7 @@ import { ToastContainer } from "react-toastify";
 // import changeStatus from "./actions/user/changeStatus";
 import Home from "./pages/home/index";
 import Profile from "./pages/profile/index";
+import PostPage from "./pages/post/index";
 import Signup from "./pages/sign-up/index";
 import Signin from "./pages/sign-in/index";
 import "react-toastify/dist/ReactToastify.css";
@@ -54,6 +55,9 @@ const App = () => {
             </Route>
             <Route path='/u/:id'>
               {user ? <Profile /> : <Redirect to='/sign-in' />}
+            </Route>
+            <Route path='/p/:id'>
+              {user ? <PostPage /> : <Redirect to='/sign-in' />}
             </Route>
             <Route path='/sign-up'>
               {user ? <Redirect to='/' /> : <Signup />}
