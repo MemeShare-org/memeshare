@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router";
 import UserContext from "../../context/userContext";
 import getUser from "../../actions/user/getUser";
+import getPost from "../../actions/posts/getPost";
 import Loader from "../../components/loader";
 import Topbar from "../../components/topbar/index";
 import ProfileCard from "../../components/profile-card/index";
@@ -17,7 +18,7 @@ const PostPage = () => {
   const [IsOpen, setIsOpen] = useState(false);
   const [loading, setLoading] = useState(true);
   const [friends] = useState([]);
-  const [post] = useState({
+  const [post, setPost] = useState({
     id: id,
     date: "2/5/2021",
     author: {
@@ -33,6 +34,7 @@ const PostPage = () => {
 
     document.title = `MemeShare | Post`;
     getUser({ id, setProfile, setLoading });
+    getPost({ id, setPost });
   }, [id, user, setProfile]);
 
   return (
@@ -56,7 +58,6 @@ const PostPage = () => {
           <FriendsList friends={friends} />
           <PostDiv>
             <Post
-              key={"435645645"}
               Id={post.id}
               Date={post.date}
               Author={post.author}
