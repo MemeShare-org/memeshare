@@ -10,13 +10,16 @@ const Post = ({ Id, PostDate, Title, Author, Upload }) => {
   return (
     <PostDiv>
       <TopPostDiv>
-        <AuthorDiv onClick={() => history.push(`/u/${Author.username}`)}>
+        <AuthorDiv>
           <img
             src={Author.picture}
             alt={Author.username}
             title={Author.username}
+            onClick={() => history.push(`/u/${Author.username}`)}
           />
-          <span>{Author.username}</span>
+          <span onClick={() => history.push(`/u/${Author.username}`)}>
+            {Author.username}
+          </span>
           <label>{`${fomateDate.getFullYear()}/${
             fomateDate.getMonth() + 1
           }/${fomateDate.getDate()}`}</label>
