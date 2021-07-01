@@ -18,24 +18,16 @@ const PostPage = () => {
   const [IsOpen, setIsOpen] = useState(false);
   const [loading, setLoading] = useState(true);
   const [friends] = useState([]);
-  const [post, setPost] = useState({
-    id: id,
-    date: "2/5/2021",
-    author: {
-      picture:
-        "https://avatars.githubusercontent.com/u/45138843?s=400&u=0a23c06a5fc819e6895feb49d1e3bf6816a2fe29&v=4",
-      username: "iLaD",
-    },
-    upload: "https://i.redd.it/gno9rwueyhv61.jpg",
-  });
+  const [post, setPost] = useState();
 
+  var postId = id;
   useEffect(() => {
     var id = user.username;
 
     document.title = `MemeShare | Post`;
     getUser({ id, setProfile, setLoading });
-    getPost({ id, setPost });
-  }, [id, user, setProfile]);
+    getPost({ postId, setPost });
+  }, [id, user, postId, setProfile]);
 
   return (
     <div>
@@ -59,9 +51,9 @@ const PostPage = () => {
           <PostDiv>
             <Post
               Id={post.id}
-              Date={post.date}
+              Title={post.title}
               Author={post.author}
-              Upload={post.upload}
+              Upload={post.image}
             />
           </PostDiv>
         </div>
