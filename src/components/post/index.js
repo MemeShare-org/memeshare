@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import PostDetails from "./post-details";
 import { PostDiv, TopPostDiv, AuthorDiv } from "./style";
 
-const Post = ({ Id, Date, Author, Upload }) => {
+const Post = ({ Id, Title, Author, Upload }) => {
   const history = useHistory();
 
   return (
@@ -19,6 +19,7 @@ const Post = ({ Id, Date, Author, Upload }) => {
         </AuthorDiv>
         <PostDetails Id={Id} />
       </TopPostDiv>
+      <h2>{Title}</h2>
       <img src={Upload} alt={Author.username} title={Author.username} />
     </PostDiv>
   );

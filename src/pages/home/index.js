@@ -69,7 +69,7 @@ const Home = () => {
                 <Post
                   key={index}
                   Id={post.id}
-                  Date={post.date}
+                  Title={post.title}
                   Author={post.author}
                   Upload={post.image}
                 />

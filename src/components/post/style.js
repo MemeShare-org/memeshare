@@ -7,6 +7,13 @@ export const PostDiv = styled.div`
   height: 60%;
   margin: 10px 0px 15px 0px;
 
+  h2 {
+    margin: -10px 0px 10px 15px;
+    overflow-wrap: break-word;
+    text-align: left;
+    color: white;
+  }
+
   img {
     width: 95%;
     height: auto;
