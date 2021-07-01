@@ -18,16 +18,23 @@ const PostPage = () => {
   const [IsOpen, setIsOpen] = useState(false);
   const [loading, setLoading] = useState(true);
   const [friends] = useState([]);
-  const [post, setPost] = useState();
+  const [post, setPost] = useState({
+    _id: "",
+    title: "",
+    picture: "",
+    date: "",
+    author: {},
+  });
 
   var postId = id;
   useEffect(() => {
     var id = user.username;
 
-    document.title = `MemeShare | Post`;
     getUser({ id, setProfile, setLoading });
     getPost({ postId, setPost });
   }, [id, user, postId, setProfile]);
+
+  useEffect(() => (document.title = `MemeShare | ${post.title}`), [post]);
 
   return (
     <div>
@@ -50,7 +57,7 @@ const PostPage = () => {
           <FriendsList friends={friends} />
           <PostDiv>
             <Post
-              Id={post.id}
+              Id={post._id}
               Title={post.title}
               Author={post.author}
               Upload={post.image}
