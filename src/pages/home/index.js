@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
 import UserContext from "../../context/userContext";
 import getUser from "../../actions/user/getUser";
+import getPosts from "../../actions/posts/getPosts";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import Loader from "../../components/loader";
 import Topbar from "../../components/topbar/index";
@@ -24,38 +25,7 @@ const Home = () => {
   const [IsOpen, setIsOpen] = useState(false);
   const [loading, setLoading] = useState(true);
   const [friends] = useState([]);
-  const [posts] = useState([
-    // {
-    //   id: "564675765756765756",
-    //   date: "2/5/2021",
-    //   author: {
-    //     picture:
-    //       "https://avatars.githubusercontent.com/u/45138843?s=400&u=0a23c06a5fc819e6895feb49d1e3bf6816a2fe29&v=4",
-    //     username: "iLaD",
-    //   },
-    //   upload: "https://i.redd.it/gno9rwueyhv61.jpg",
-    // },
-    // {
-    //   id: "564675765756765756",
-    //   date: "2/5/2021",
-    //   author: {
-    //     picture:
-    //       "https://b.thumbs.redditmedia.com/Rtu2Mw0L-mx7AeYtHKkbAh75jQbgzy_Hk2UIlLeZFSs.png",
-    //     username: "RMBG",
-    //   },
-    //   upload: "https://i.redd.it/bdnmprwgbow61.jpg",
-    // },
-    // {
-    //   id: "564675765756765756",
-    //   date: "2/5/2021",
-    //   author: {
-    //     picture:
-    //       "https://styles.redditmedia.com/t5_2zmfe/styles/communityIcon_k6po5keenhq61.png?width=256&s=60ef13f941680e157b2166526b7d8458ef36d439",
-    //     username: "saadmen",
-    //   },
-    //   upload: "https://i.redd.it/7jm776qo9kw61.png",
-    // },
-  ]);
+  const [posts, setPosts] = useState([]);
 
   const matches = useMediaQuery("(max-width:768px)");
 
@@ -64,6 +34,7 @@ const Home = () => {
   useEffect(() => {
     document.title = "MemeShare | Home";
     getUser({ id, setProfile, setLoading });
+    getPosts({ setPosts });
   }, [id, setProfile]);
 
   return (
@@ -100,7 +71,7 @@ const Home = () => {
                   Id={post.id}
                   Date={post.date}
                   Author={post.author}
-                  Upload={post.upload}
+                  Upload={post.image}
                 />
               ))}
             </PostsDiv>
