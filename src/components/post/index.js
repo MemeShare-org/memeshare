@@ -3,8 +3,9 @@ import { useHistory } from "react-router-dom";
 import PostDetails from "./post-details";
 import { PostDiv, TopPostDiv, AuthorDiv } from "./style";
 
-const Post = ({ Id, Title, Author, Upload }) => {
+const Post = ({ Id, PostDate, Title, Author, Upload }) => {
   const history = useHistory();
+  var fomateDate = new Date(PostDate);
 
   return (
     <PostDiv>
@@ -16,6 +17,9 @@ const Post = ({ Id, Title, Author, Upload }) => {
             title={Author.username}
           />
           <span>{Author.username}</span>
+          <label>{`${fomateDate.getFullYear()}/${
+            fomateDate.getMonth() + 1
+          }/${fomateDate.getDate()}`}</label>
         </AuthorDiv>
         <PostDetails Id={Id} />
       </TopPostDiv>

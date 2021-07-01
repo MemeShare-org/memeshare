@@ -58,6 +58,7 @@ const PostPage = () => {
           <PostDiv>
             <Post
               Id={post._id}
+              PostDate={post.date}
               Title={post.title}
               Author={post.author}
               Upload={post.image}

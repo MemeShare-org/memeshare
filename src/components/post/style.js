@@ -63,5 +63,9 @@ export const AuthorDiv = styled.div`
     cursor: pointer;
     color: white;
     margin-left: 10px;
+    margin-right: 5px;
+  }
+
+  label {
   }
 `;
