@@ -21,7 +21,7 @@ export const PCDiv = styled.div`
 export const TopPostsDiv = styled.div`
   display: flex;
   justify-content: center;
-  margin-top: 19vh;
+  margin-top: 17.5vh;
   margin-bottom: 6vh;
 
   div {
