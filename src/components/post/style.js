@@ -4,7 +4,6 @@ export const PostDiv = styled.div`
   background-color: #242c37;
   border-radius: 6px;
   width: 40%;
-  height: 60%;
   margin: 10px 0px 15px 0px;
 
   h2 {
