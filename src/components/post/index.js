@@ -8,7 +8,7 @@ const Post = ({ Id, PostDate, Title, Author, Upload }) => {
   var fomateDate = new Date(PostDate);
 
   return (
-    <PostDiv>
+    <PostDiv className='post'>
       <TopPostDiv>
         <AuthorDiv>
           <img

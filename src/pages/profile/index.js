@@ -11,6 +11,7 @@ import ProfileCard from "../../components/profile-card/index";
 import FriendsList from "../../components/friends-list/index";
 import ProfileModal from "../../components/profile-modal/index";
 import ProfileMenu from "../../components/profile-menu";
+import Post from "../../components/post/index";
 import {
   LoaderDiv,
   PCDiv,
@@ -20,7 +21,9 @@ import {
   TopProfileDiv,
   ProfileStats,
   ProfileBio,
+  PostsDiv,
 } from "./style";
+import { EmptyPostsTitle } from "../home/style";
 
 const Profile = () => {
   const { id } = useParams();
@@ -54,9 +57,7 @@ const Profile = () => {
         .then((res) => setUserData(res.data))
         .catch((err) => err);
     }
-
-    document.title = `MemeShare | ${id}`;
-  }, [id, user, setProfile]);
+  }, [id, user]);
 
   useEffect(() => {
     if (user.username === id) setUserData(profile);
@@ -112,6 +113,7 @@ const Profile = () => {
     });
   };
 
+  document.title = `MemeShare | ${id}`;
   return (
     <div>
       {loading ? (
@@ -172,6 +174,22 @@ const Profile = () => {
               </ProfileStats>
               <ProfileBio>{profile.bio || "The bio is empty."}</ProfileBio>
             </ProfileCardDiv>
+            {profile.posts.length ? (
+              <PostsDiv>
+                {profile.posts.map((post, index) => (
+                  <Post
+                    key={index}
+                    Id={post.id}
+                    PostDate={post.date}
+                    Title={post.title}
+                    Author={post.author}
+                    Upload={post.image}
+                  />
+                ))}
+              </PostsDiv>
+            ) : (
+              <EmptyPostsTitle>There is no posts.</EmptyPostsTitle>
+            )}
           </ProfileDiv>
         </div>
       )}

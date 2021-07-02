@@ -15,7 +15,8 @@ export const PCDiv = styled.div`
 
 export const ProfileDiv = styled.div`
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   margin-top: 20vh;
 `;
 
@@ -89,4 +90,16 @@ export const ProfileBio = styled.div`
   margin: 15px 0px 20px 15px;
   max-width: 450px;
   color: white;
+`;
+
+export const PostsDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5vh;
+  width: 100%;
+
+  .post {
+    width: 40%;
+  }
 `;
