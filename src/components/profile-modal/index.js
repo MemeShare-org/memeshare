@@ -26,6 +26,7 @@ const ProfileModale = ({ user, IsOpen, setIsOpen }) => {
   const customStyles = {
     overlay: {
       background: "#0b0e1175",
+      zIndex: "2",
     },
     content: {
       width: "50vh",
