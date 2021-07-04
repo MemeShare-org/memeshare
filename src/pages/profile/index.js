@@ -163,7 +163,7 @@ const Profile = () => {
               </Div>
               <ProfileStats>
                 <span>
-                  <number>0</number> posts
+                  <number>{(profile.posts || []).length}</number> posts
                 </span>
                 <span>
                   <number>{(profile.followers || []).length}</number> followers
