@@ -2,12 +2,14 @@ import React, { useContext, useState, useEffect } from "react";
 import UserContext from "../../context/userContext";
 import getUser from "../../actions/user/getUser";
 import getPosts from "../../actions/posts/getPosts";
+import addPost from "../../actions/posts/addPost";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import Loader from "../../components/loader";
 import Topbar from "../../components/topbar/index";
 import BottomBar from "../../components/bottombar";
 import ProfileCard from "../../components/profile-card/index";
 import ProfileModal from "../../components/profile-modal/index";
+import PostModal from "../../components/post-modal/index";
 import FriendsList from "../../components/friends-list/index";
 import Post from "../../components/post/index";
 import {
@@ -22,7 +24,10 @@ import {
 const Home = () => {
   const { user, setUser } = useContext(UserContext);
   const [profile, setProfile] = useState({});
-  const [IsOpen, setIsOpen] = useState(false);
+  const [IsOpen, setIsOpen] = useState({
+    profileModal: false,
+    postModal: false,
+  });
   const [loading, setLoading] = useState(true);
   const [friends] = useState([]);
   const [posts, setPosts] = useState([]);
@@ -55,12 +60,26 @@ const Home = () => {
               IsOpen={IsOpen}
               setIsOpen={setIsOpen}
             />
+            <PostModal
+              authorId={user.userId}
+              addPost={addPost}
+              IsOpen={IsOpen}
+              setIsOpen={setIsOpen}
+            />
           </PCDiv>
           <FriendsList friends={friends} />
           <TopPostsDiv>
             <div>
               <h2>Feed</h2>
-              <button>New</button>
+              <button
+                onClick={() =>
+                  setIsOpen({
+                    profileModal: false,
+                    postModal: true,
+                  })
+                }>
+                New
+              </button>
             </div>
           </TopPostsDiv>
           {posts.length ? (

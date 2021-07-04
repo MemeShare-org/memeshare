@@ -14,7 +14,10 @@ const ProfileCard = ({ user, setIsOpen }) => {
           alt={user.username}
           onClick={() => {
             document.body.style.overflow = "hidden";
-            setIsOpen(true);
+            setIsOpen({
+              profileModal: true,
+              postModal: false,
+            });
           }}
         />
         <span onClick={() => history.push(`/u/${user.username}`)}>

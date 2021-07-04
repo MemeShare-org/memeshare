@@ -6,7 +6,7 @@ import Button from "../button";
 import ClearIcon from "@material-ui/icons/Clear";
 import { TopDiv, FormDiv, ButtonsDiv } from "./style";
 
-const ProfileModale = ({ user, IsOpen, setIsOpen }) => {
+const ProfileModal = ({ user, IsOpen, setIsOpen }) => {
   const [inputValues, setInputValues] = useState({
     username: user.username,
     email: user.email,
@@ -46,13 +46,16 @@ const ProfileModale = ({ user, IsOpen, setIsOpen }) => {
 
   function closeModal() {
     document.body.style.overflow = "unset";
-    setIsOpen(false);
+    setIsOpen({
+      profileModal: false,
+      postModal: false,
+    });
   }
 
   return (
     <div>
       <Modal
-        isOpen={IsOpen}
+        isOpen={IsOpen.profileModal}
         onRequestClose={closeModal}
         style={customStyles}
         contentLabel='Example Modal'>
@@ -113,4 +116,4 @@ const ProfileModale = ({ user, IsOpen, setIsOpen }) => {
   );
 };
 
-export default ProfileModale;
+export default ProfileModal;
