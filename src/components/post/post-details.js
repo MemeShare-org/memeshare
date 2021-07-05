@@ -42,7 +42,7 @@ const StyledMenuItem = withStyles(() => ({
   },
 }))(MenuItem);
 
-const PostDetails = ({ Id }) => {
+const PostDetails = ({ postId }) => {
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleClick = (event) => {
@@ -56,7 +56,7 @@ const PostDetails = ({ Id }) => {
   return (
     <div>
       <KeyboardArrowDownIcon
-        style={{ color: 'white' }}
+        style={{ color: "white" }}
         aria-controls='customized-menu'
         aria-haspopup='true'
         variant='contained'
@@ -69,13 +69,13 @@ const PostDetails = ({ Id }) => {
         open={Boolean(anchorEl)}
         onClose={handleClose}>
         <CopyToClipboard
-          text={`${window.location.hostname}/post/${Id}`}
+          text={`${window.location.hostname}/p/${postId}`}
           onCopy={() => toast.success("Copied Successfully!")}>
           <StyledMenuItem>
             <ListItemIcon>
               <LinkIcon style={{ color: "white" }} fontSize='small' />
             </ListItemIcon>
-            <ListItemText primary='Share' />
+            <ListItemText primary='Copy link' />
           </StyledMenuItem>
         </CopyToClipboard>
       </StyledMenu>

@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import PostDetails from "./post-details";
 import { PostDiv, TopPostDiv, AuthorDiv } from "./style";
 
-const Post = ({ Id, PostDate, Title, Author, Upload }) => {
+const Post = ({ postId, PostDate, Title, Author, Upload }) => {
   const history = useHistory();
   var fomateDate = new Date(PostDate);
 
@@ -24,7 +24,7 @@ const Post = ({ Id, PostDate, Title, Author, Upload }) => {
             fomateDate.getMonth() + 1
           }/${fomateDate.getDate()}`}</label>
         </AuthorDiv>
-        <PostDetails Id={Id} />
+        <PostDetails postId={postId} />
       </TopPostDiv>
       <h2>{Title}</h2>
       <img src={Upload} alt={Author.username} title={Author.username} />
