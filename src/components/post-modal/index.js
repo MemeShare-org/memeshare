@@ -8,8 +8,8 @@ import { TopDiv, FormDiv, ButtonsDiv } from "./style";
 
 const PostSchema = Yup.object().shape({
   title: Yup.string()
-    .min(4, "Too Short!")
-    .max(16, "Too Long!")
+    .min(25, "Too Short!")
+    .max(50, "Too Long!")
     .required("Title is Required!"),
   memeURL: Yup.string()
     .matches(
@@ -74,16 +74,28 @@ const PostModal = ({ authorId, addPost, IsOpen, setIsOpen }) => {
             resetForm();
             addPost({ post });
           }}>
-          {({ isSubmitting }) => (
+          {({ errors, touched, isSubmitting }) => (
             <Form>
               <FormDiv>
                 <div>
                   <label style={customStyles.label}>Title</label>
-                  <Field type='text' name='title' />
+                  <Field
+                    className={
+                      errors.title && touched.title ? "error" : "succes"
+                    }
+                    type='text'
+                    name='title'
+                  />
                 </div>
                 <div>
                   <label style={customStyles.label}>Meme URL</label>
-                  <Field type='url' name='memeURL' />
+                  <Field
+                    className={
+                      errors.memeURL && touched.memeURL ? "error" : "succes"
+                    }
+                    type='url'
+                    name='memeURL'
+                  />
                 </div>
                 <ButtonsDiv>
                   <Button Type='submit' Title='Post' Disable={isSubmitting} />

@@ -22,9 +22,19 @@ export const FormDiv = styled.div`
     color: #5d7290;
   }
 
-  input,
-  textarea {
+  input {
     width: 100%;
+    outline: none;
+  }
+
+  .error {
+    border: 1px solid red;
+    color: red;
+  }
+
+  .succes {
+    border: none;
+    color: white;
   }
 `;
 
