@@ -27,7 +27,7 @@ const Post = ({ postId, PostDate, Title, Author, Upload }) => {
         <PostDetails postId={postId} />
       </TopPostDiv>
       <h2>{Title}</h2>
-      <img src={Upload} alt={Author.username} title={Author.username} />
+      <img src={Upload} alt={Title} title={Title} />
     </PostDiv>
   );
 };
