@@ -1,11 +1,12 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
+import moment from "moment";
 import PostDetails from "./post-details";
 import { PostDiv, TopPostDiv, AuthorDiv } from "./style";
 
 const Post = ({ postId, PostDate, Title, Author, Upload }) => {
   const history = useHistory();
-  var fomateDate = new Date(PostDate);
+  var formateDate = new Date(PostDate);
 
   return (
     <PostDiv className='post'>
@@ -20,9 +21,16 @@ const Post = ({ postId, PostDate, Title, Author, Upload }) => {
           <span onClick={() => history.push(`/u/${Author.username}`)}>
             {Author.username}
           </span>
-          <label>{`${fomateDate.getFullYear()}/${
-            fomateDate.getMonth() + 1
-          }/${fomateDate.getDate()}`}</label>
+          <label>
+            {moment({
+              year: formateDate.getFullYear(),
+              month: formateDate.getMonth(),
+              days: formateDate.getDate(),
+              hours: formateDate.getHours(),
+              minutes: formateDate.getMinutes(),
+              seconds: formateDate.getSeconds(),
+            }).fromNow()}
+          </label>
         </AuthorDiv>
         <PostDetails postId={postId} />
       </TopPostDiv>
