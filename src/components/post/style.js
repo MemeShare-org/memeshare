@@ -66,5 +66,6 @@ export const AuthorDiv = styled.div`
   }
 
   label {
+    color: #5d7290;
   }
 `;
