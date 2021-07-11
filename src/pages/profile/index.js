@@ -179,7 +179,7 @@ const Profile = () => {
               </Div>
               <ProfileStats>
                 <span>
-                  <number>{(profile.posts || []).length}</number> posts
+                  <number>{(profile.posts || []).length} </number> posts
                 </span>
                 <span>
                   <number>{(profile.followers || []).length}</number> followers
@@ -195,7 +195,7 @@ const Profile = () => {
                 {profile.posts.map((post, index) => (
                   <Post
                     key={index}
-                    Id={post.id}
+                    PostId={post._id}
                     PostDate={post.date}
                     Title={post.title}
                     Author={post.author}

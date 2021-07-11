@@ -42,7 +42,7 @@ const StyledMenuItem = withStyles(() => ({
   },
 }))(MenuItem);
 
-const PostDetails = ({ postId }) => {
+const PostDetails = ({ PostId }) => {
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleClick = (event) => {
@@ -69,7 +69,7 @@ const PostDetails = ({ postId }) => {
         open={Boolean(anchorEl)}
         onClose={handleClose}>
         <CopyToClipboard
-          text={`${window.location.hostname}/p/${postId}`}
+          text={`${window.location.hostname}/p/${PostId}`}
           onCopy={() => toast.success("Copied Successfully!")}>
           <StyledMenuItem>
             <ListItemIcon>

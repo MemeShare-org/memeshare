@@ -18,13 +18,7 @@ const PostPage = () => {
   const [IsOpen, setIsOpen] = useState(false);
   const [loading, setLoading] = useState(true);
   const [friends] = useState([]);
-  const [post, setPost] = useState({
-    _id: "",
-    title: "",
-    picture: "",
-    date: "",
-    author: {},
-  });
+  const [post, setPost] = useState();
 
   var postId = id;
   useEffect(() => {
@@ -57,7 +51,7 @@ const PostPage = () => {
           <FriendsList friends={friends} />
           <PostDiv>
             <Post
-              Id={post._id}
+              PostId={post._id}
               PostDate={post.date}
               Title={post.title}
               Author={post.author}

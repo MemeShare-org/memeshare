@@ -4,7 +4,7 @@ import moment from "moment";
 import PostDetails from "./post-details";
 import { PostDiv, TopPostDiv, AuthorDiv } from "./style";
 
-const Post = ({ postId, PostDate, Title, Author, Upload }) => {
+const Post = ({ PostId, PostDate, Title, Author, Upload }) => {
   const history = useHistory();
   var formateDate = new Date(PostDate);
 
@@ -32,7 +32,7 @@ const Post = ({ postId, PostDate, Title, Author, Upload }) => {
             }).fromNow()}
           </label>
         </AuthorDiv>
-        <PostDetails postId={postId} />
+        <PostDetails PostId={PostId} />
       </TopPostDiv>
       <h2>{Title}</h2>
       <img src={Upload} alt={Title} title={Title} />
