@@ -18,7 +18,13 @@ const PostPage = () => {
   const [IsOpen, setIsOpen] = useState(false);
   const [loading, setLoading] = useState(true);
   const [friends] = useState([]);
-  const [post, setPost] = useState();
+  const [post, setPost] = useState({
+    _id: "",
+    title: "",
+    image: "",
+    date: "",
+    author: {},
+  });
 
   var postId = id;
   useEffect(() => {
