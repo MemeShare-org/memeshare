@@ -50,6 +50,17 @@ export const TopProfileDiv = styled.div`
   align-items: center;
   margin: 10px;
 
+  div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    label {
+      color: #5d7290;
+      margin-left: 10px;
+    }
+  }
+
   img {
     width: 80px;
     height: 80px;

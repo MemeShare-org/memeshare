@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router";
+import moment from "moment";
 import API from "../../api/api";
 import UserContext from "../../context/userContext";
 import getUser from "../../actions/user/getUser";
@@ -35,6 +36,8 @@ const Profile = () => {
   const [userData, setUserData] = useState({});
   const [friends] = useState([]);
   const [isFollowed, setIsFollowed] = useState(false);
+
+  var formateDate = new Date(profile.createdAt);
 
   const checkIfFollowed = ({ followers, user }) => {
     for (var i = 0; i < followers.length; i++) {
@@ -142,7 +145,20 @@ const Profile = () => {
                     alt={profile.username}
                     title={profile.username}
                   />
-                  <span>{profile.username}</span>
+                  <div>
+                    <span>{profile.username}</span>
+                    <label>
+                      Created{" "}
+                      {moment({
+                        year: formateDate.getFullYear(),
+                        month: formateDate.getMonth(),
+                        days: formateDate.getDate(),
+                        hours: formateDate.getHours(),
+                        minutes: formateDate.getMinutes(),
+                        seconds: formateDate.getSeconds(),
+                      }).fromNow()}
+                    </label>
+                  </div>
                   {user.userId === profile._id ? (
                     ""
                   ) : isFollowed ? (
