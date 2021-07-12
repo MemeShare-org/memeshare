@@ -22,6 +22,7 @@ const Post = ({ PostId, PostDate, Title, Author, Upload }) => {
             {Author.username}
           </span>
           <label>
+            Posted{" "}
             {moment({
               year: formateDate.getFullYear(),
               month: formateDate.getMonth(),
