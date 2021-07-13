@@ -87,6 +87,7 @@ const Home = () => {
               {posts.map((post, index) => (
                 <Post
                   key={index}
+                  IsUserPost={post.author._id === user.userId}
                   PostId={post._id}
                   PostDate={post.date}
                   Title={post.title}

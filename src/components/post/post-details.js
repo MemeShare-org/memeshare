@@ -2,12 +2,14 @@ import React from "react";
 import { withStyles } from "@material-ui/core/styles";
 import { toast } from "react-toastify";
 import { CopyToClipboard } from "react-copy-to-clipboard";
+import deletePost from "../../actions/posts/deletePost";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
 import LinkIcon from "@material-ui/icons/Link";
+import DeleteIcon from "@material-ui/icons/Delete";
 
 const StyledMenu = withStyles({
   paper: {
@@ -42,7 +44,7 @@ const StyledMenuItem = withStyles(() => ({
   },
 }))(MenuItem);
 
-const PostDetails = ({ PostId }) => {
+const PostDetails = ({ IsUserPost, userId, PostId }) => {
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleClick = (event) => {
@@ -78,6 +80,18 @@ const PostDetails = ({ PostId }) => {
             <ListItemText primary='Copy link' />
           </StyledMenuItem>
         </CopyToClipboard>
+        {IsUserPost ? (
+          <StyledMenuItem
+            onClick={() => {
+              var postId = PostId;
+              deletePost({ userId, postId });
+            }}>
+            <ListItemIcon>
+              <DeleteIcon style={{ color: "white" }} fontSize='small' />
+            </ListItemIcon>
+            <ListItemText primary='Delete' />
+          </StyledMenuItem>
+        ) : null}
       </StyledMenu>
     </div>
   );
