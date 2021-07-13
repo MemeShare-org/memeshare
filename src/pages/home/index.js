@@ -88,11 +88,7 @@ const Home = () => {
                 <Post
                   key={index}
                   IsUserPost={post.author._id === user.userId}
-                  PostId={post._id}
-                  PostDate={post.date}
-                  Title={post.title}
-                  Author={post.author}
-                  Upload={post.image}
+                  post={post}
                 />
               ))}
             </PostsDiv>

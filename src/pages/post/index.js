@@ -56,13 +56,7 @@ const PostPage = () => {
           </PCDiv>
           <FriendsList friends={friends} />
           <PostDiv>
-            <Post
-              PostId={post._id}
-              PostDate={post.date}
-              Title={post.title}
-              Author={post.author}
-              Upload={post.image}
-            />
+            <Post IsUserPost={post.author._id === user.userId} post={post} />
           </PostDiv>
         </div>
       )}

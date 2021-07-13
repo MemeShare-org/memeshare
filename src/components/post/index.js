@@ -4,24 +4,25 @@ import moment from "moment";
 import PostDetails from "./post-details";
 import { PostDiv, TopPostDiv, AuthorDiv } from "./style";
 
-const Post = ({ IsUserPost, PostId, PostDate, Title, Author, Upload }) => {
-  var userId = Author._id;
+const Post = ({ IsUserPost, post }) => {
+  const { _id, date, title, author, image } = post;
+  var userId = author._id;
 
   const history = useHistory();
-  var formateDate = new Date(PostDate);
+  var formateDate = new Date(date);
 
   return (
     <PostDiv className='post'>
       <TopPostDiv>
         <AuthorDiv>
           <img
-            src={Author.picture}
-            alt={Author.username}
-            title={Author.username}
-            onClick={() => history.push(`/u/${Author.username}`)}
+            src={author.picture}
+            alt={author.username}
+            title={author.username}
+            onClick={() => history.push(`/u/${author.username}`)}
           />
-          <span onClick={() => history.push(`/u/${Author.username}`)}>
-            {Author.username}
+          <span onClick={() => history.push(`/u/${author.username}`)}>
+            {author.username}
           </span>
           <label>
             Posted{" "}
@@ -35,10 +36,10 @@ const Post = ({ IsUserPost, PostId, PostDate, Title, Author, Upload }) => {
             }).fromNow()}
           </label>
         </AuthorDiv>
-        <PostDetails IsUserPost={IsUserPost} userId={userId} PostId={PostId} />
+        <PostDetails IsUserPost={IsUserPost} userId={userId} PostId={_id} />
       </TopPostDiv>
-      <h2>{Title}</h2>
-      <img src={Upload} alt={Title} title={Title} />
+      <h2>{title}</h2>
+      <img src={image} alt={title} title={title} />
     </PostDiv>
   );
 };

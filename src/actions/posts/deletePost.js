@@ -9,7 +9,7 @@ const deletePost = ({ userId, postId }) => {
       .then(() => {
         toast.success("Deleted the post successfully!");
         setTimeout(() => {
-          window.location.reload();
+          window.location.href = "/";
         }, 1500);
       })
       .catch((err) => console.error(err));
