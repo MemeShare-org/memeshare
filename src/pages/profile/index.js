@@ -195,11 +195,8 @@ const Profile = () => {
                 {profile.posts.map((post, index) => (
                   <Post
                     key={index}
-                    PostId={post._id}
-                    PostDate={post.date}
-                    Title={post.title}
-                    Author={post.author}
-                    Upload={post.image}
+                    IsUserPost={post.author._id === user.userId}
+                    post={post}
                   />
                 ))}
               </PostsDiv>
