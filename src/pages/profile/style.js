@@ -18,6 +18,11 @@ export const ProfileDiv = styled.div`
   flex-direction: column;
   align-items: center;
   margin-top: 20vh;
+  overflow: scroll;
+  height: 80vh;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 export const ProfileCardDiv = styled.div`
