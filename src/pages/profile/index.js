@@ -138,11 +138,22 @@ const Profile = () => {
             Content={
               <div
                 style={{
-                  marginTop: "10px",
+                  marginTop: "25px",
                 }}>
-                {profile.following.map((follower, index) => (
-                  <Friend key={index} friend={follower} />
-                ))}
+                {profile.following.length ? (
+                  profile.following.map((follower, index) => (
+                    <Friend key={index} friend={follower} />
+                  ))
+                ) : (
+                  <h2
+                    style={{
+                      marginTop: "150px",
+                      textAlign: "center",
+                      color: "#cccdcf",
+                    }}>
+                    The list is empty
+                  </h2>
+                )}
               </div>
             }
           />
@@ -153,11 +164,22 @@ const Profile = () => {
             Content={
               <div
                 style={{
-                  marginTop: "10px",
+                  marginTop: "25px",
                 }}>
-                {profile.followers.map((follower, index) => (
-                  <Friend key={index} friend={follower} />
-                ))}
+                {profile.followers.length ? (
+                  profile.followers.map((follower, index) => (
+                    <Friend key={index} friend={follower} />
+                  ))
+                ) : (
+                  <h2
+                    style={{
+                      marginTop: "150px",
+                      textAlign: "center",
+                      color: "#cccdcf",
+                    }}>
+                    The list is empty
+                  </h2>
+                )}
               </div>
             }
           />
