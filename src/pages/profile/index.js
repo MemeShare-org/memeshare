@@ -12,7 +12,9 @@ import ProfileCard from "../../components/profile-card/index";
 import FriendsList from "../../components/friends-list/index";
 import ProfileModal from "../../components/profile-modal/index";
 import ProfileMenu from "../../components/profile-menu";
+import PSModal from "../../components/ps-modal/index";
 import Post from "../../components/post/index";
+import Friend from "../../components/friend/index";
 import {
   LoaderDiv,
   PCDiv,
@@ -31,7 +33,11 @@ const Profile = () => {
 
   const { user, setUser } = useContext(UserContext);
   const [loading, setLoading] = useState(true);
-  const [IsOpen, setIsOpen] = useState(false);
+  const [IsOpen, setIsOpen] = useState({
+    profileModal: false,
+    followingModal: false,
+    followersModal: false,
+  });
   const [profile, setProfile] = useState({});
   const [userData, setUserData] = useState({});
   const [friends] = useState([]);
@@ -125,6 +131,36 @@ const Profile = () => {
         </LoaderDiv>
       ) : (
         <div>
+          <PSModal
+            IsOpen={IsOpen.followingModal}
+            setIsOpen={setIsOpen}
+            ModalTitle='Following'
+            Content={
+              <div
+                style={{
+                  marginTop: "10px",
+                }}>
+                {profile.following.map((follower, index) => (
+                  <Friend key={index} friend={follower} />
+                ))}
+              </div>
+            }
+          />
+          <PSModal
+            IsOpen={IsOpen.followersModal}
+            setIsOpen={setIsOpen}
+            ModalTitle='Followers'
+            Content={
+              <div
+                style={{
+                  marginTop: "10px",
+                }}>
+                {profile.followers.map((follower, index) => (
+                  <Friend key={index} friend={follower} />
+                ))}
+              </div>
+            }
+          />
           <Topbar user={user} setUser={setUser} />
           <PCDiv>
             <ProfileCard user={userData} setIsOpen={setIsOpen} />
@@ -181,10 +217,24 @@ const Profile = () => {
                 <span>
                   <number>{(profile.posts || []).length} </number> posts
                 </span>
-                <span>
+                <span
+                  onClick={() =>
+                    setIsOpen({
+                      profileModal: false,
+                      followingModal: false,
+                      followersModal: true,
+                    })
+                  }>
                   <number>{(profile.followers || []).length}</number> followers
                 </span>
-                <span>
+                <span
+                  onClick={() =>
+                    setIsOpen({
+                      profileModal: false,
+                      followingModal: true,
+                      followersModal: false,
+                    })
+                  }>
                   <number>{(profile.following || []).length}</number> following
                 </span>
               </ProfileStats>

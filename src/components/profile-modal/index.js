@@ -49,6 +49,8 @@ const ProfileModal = ({ user, IsOpen, setIsOpen }) => {
     setIsOpen({
       profileModal: false,
       postModal: false,
+      followersModal: false,
+      followingModal: false,
     });
   }
 
