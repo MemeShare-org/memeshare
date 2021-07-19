@@ -8,8 +8,9 @@ import MenuItem from "@material-ui/core/MenuItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
-import LinkIcon from "@material-ui/icons/Link";
+import EditIcon from "@material-ui/icons/Edit";
 import DeleteIcon from "@material-ui/icons/Delete";
+import LinkIcon from "@material-ui/icons/Link";
 
 const StyledMenu = withStyles({
   paper: {
@@ -70,16 +71,12 @@ const PostDetails = ({ IsUserPost, userId, PostId }) => {
         keepMounted
         open={Boolean(anchorEl)}
         onClose={handleClose}>
-        <CopyToClipboard
-          text={`${window.location.hostname}/p/${PostId}`}
-          onCopy={() => toast.success("Copied Successfully!")}>
-          <StyledMenuItem>
-            <ListItemIcon>
-              <LinkIcon style={{ color: "white" }} fontSize='small' />
-            </ListItemIcon>
-            <ListItemText primary='Copy link' />
-          </StyledMenuItem>
-        </CopyToClipboard>
+        <StyledMenuItem>
+          <ListItemIcon>
+            <EditIcon style={{ color: "white" }} fontSize='small' />
+          </ListItemIcon>
+          <ListItemText primary='Edit' />
+        </StyledMenuItem>
         {IsUserPost ? (
           <StyledMenuItem
             onClick={() => {
@@ -92,6 +89,16 @@ const PostDetails = ({ IsUserPost, userId, PostId }) => {
             <ListItemText primary='Delete' />
           </StyledMenuItem>
         ) : null}
+        <CopyToClipboard
+          text={`${window.location.hostname}/p/${PostId}`}
+          onCopy={() => toast.success("Copied Successfully!")}>
+          <StyledMenuItem>
+            <ListItemIcon>
+              <LinkIcon style={{ color: "white" }} fontSize='small' />
+            </ListItemIcon>
+            <ListItemText primary='Copy link' />
+          </StyledMenuItem>
+        </CopyToClipboard>
       </StyledMenu>
     </div>
   );
