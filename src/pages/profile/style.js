@@ -118,4 +118,10 @@ export const PostsDiv = styled.div`
   .post {
     width: 40%;
   }
+
+  @media screen and (max-width: 768px) {
+    .post {
+      width: 80%;
+    }
+  }
 `;
