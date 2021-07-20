@@ -8,17 +8,19 @@ import { TopbarDiv } from "./style";
 const Topbar = ({ user, setUser }) => {
   const history = useHistory();
 
-
-
   return (
     <div>
-
-        <TopbarDiv>
-          <Logo history={history} />
-          <Input Title='Search' Type='search' />
-          <TopbarAccount user={user} setUser={setUser} />
-        </TopbarDiv>
-
+      <TopbarDiv>
+        <Logo history={history} />
+        <Input
+          onKeyDown={(e) => {
+            if (e.key === "Enter") history.push(`/u/${e.target.value}`);
+          }}
+          placeholder='Search'
+          type='search'
+        />
+        <TopbarAccount user={user} setUser={setUser} />
+      </TopbarDiv>
     </div>
   );
 };
