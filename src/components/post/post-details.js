@@ -45,7 +45,7 @@ const StyledMenuItem = withStyles(() => ({
   },
 }))(MenuItem);
 
-const PostDetails = ({ IsUserPost, userId, PostId }) => {
+const PostDetails = ({ Conditions, userId, PostId }) => {
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleClick = (event) => {
@@ -71,23 +71,25 @@ const PostDetails = ({ IsUserPost, userId, PostId }) => {
         keepMounted
         open={Boolean(anchorEl)}
         onClose={handleClose}>
-        <StyledMenuItem>
-          <ListItemIcon>
-            <EditIcon style={{ color: "white" }} fontSize='small' />
-          </ListItemIcon>
-          <ListItemText primary='Edit' />
-        </StyledMenuItem>
-        {IsUserPost ? (
-          <StyledMenuItem
-            onClick={() => {
-              var postId = PostId;
-              deletePost({ userId, postId });
-            }}>
-            <ListItemIcon>
-              <DeleteIcon style={{ color: "white" }} fontSize='small' />
-            </ListItemIcon>
-            <ListItemText primary='Delete' />
-          </StyledMenuItem>
+        {Conditions ? (
+          <div>
+            <StyledMenuItem>
+              <ListItemIcon>
+                <EditIcon style={{ color: "white" }} fontSize='small' />
+              </ListItemIcon>
+              <ListItemText primary='Edit' />
+            </StyledMenuItem>
+            <StyledMenuItem
+              onClick={() => {
+                var postId = PostId;
+                deletePost({ userId, postId });
+              }}>
+              <ListItemIcon>
+                <DeleteIcon style={{ color: "white" }} fontSize='small' />
+              </ListItemIcon>
+              <ListItemText primary='Delete' />
+            </StyledMenuItem>
+          </div>
         ) : null}
         <CopyToClipboard
           text={`${window.location.hostname}/p/${PostId}`}

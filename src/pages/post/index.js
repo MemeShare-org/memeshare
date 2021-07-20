@@ -56,7 +56,12 @@ const PostPage = () => {
           </PCDiv>
           <FriendsList friends={friends} />
           <PostDiv>
-            <Post IsUserPost={post.author._id === user.userId} post={post} />
+            <Post
+              Conditions={
+                post.author._id === user.userId || profile.role === "admin"
+              }
+              post={post}
+            />
           </PostDiv>
         </div>
       )}

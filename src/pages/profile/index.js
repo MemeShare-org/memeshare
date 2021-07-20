@@ -266,7 +266,10 @@ const Profile = () => {
                 {profile.posts.map((post, index) => (
                   <Post
                     key={index}
-                    IsUserPost={post.author._id === user.userId}
+                    Conditions={
+                      post.author._id === user.userId ||
+                      userData.role === "admin"
+                    }
                     post={post}
                   />
                 ))}

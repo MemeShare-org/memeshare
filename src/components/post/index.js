@@ -4,7 +4,7 @@ import moment from "moment";
 import PostDetails from "./post-details";
 import { PostDiv, TopPostDiv, AuthorDiv } from "./style";
 
-const Post = ({ IsUserPost, post }) => {
+const Post = ({ Conditions, post }) => {
   const { _id, date, title, author, image } = post;
   var userId = author._id;
 
@@ -35,7 +35,7 @@ const Post = ({ IsUserPost, post }) => {
             }).fromNow()}
           </label>
         </AuthorDiv>
-        <PostDetails IsUserPost={IsUserPost} userId={userId} PostId={_id} />
+        <PostDetails Conditions={Conditions} userId={userId} PostId={_id} />
       </TopPostDiv>
       <h2>{title}</h2>
       <img src={image} alt={title} title={title} />
