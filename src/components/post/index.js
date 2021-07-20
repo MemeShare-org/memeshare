@@ -25,7 +25,6 @@ const Post = ({ IsUserPost, post }) => {
             {author.username}
           </span>
           <label>
-            Posted{" "}
             {moment({
               year: formateDate.getFullYear(),
               month: formateDate.getMonth(),

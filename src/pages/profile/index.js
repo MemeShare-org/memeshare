@@ -206,7 +206,6 @@ const Profile = () => {
                   <div>
                     <span>{profile.username}</span>
                     <label>
-                      Created{" "}
                       {moment({
                         year: formateDate.getFullYear(),
                         month: formateDate.getMonth(),
