@@ -7,10 +7,7 @@ import ClearIcon from "@material-ui/icons/Clear";
 import { TopDiv, FormDiv, ButtonsDiv } from "./style";
 
 const PostSchema = Yup.object().shape({
-  title: Yup.string()
-    .min(25, "Too Short!")
-    .max(50, "Too Long!")
-    .required("Title is Required!"),
+  title: Yup.string().max(50, "Too Long!").required("Title is Required!"),
   memeURL: Yup.string()
     .matches(
       /((https?):\/\/)?(www.)?[a-z0-9]+(\.[a-z]{2,}){1,3}(#?\/?[a-zA-Z0-9#]+)*\/?(\?[a-zA-Z0-9-_]+=[a-zA-Z0-9-%]+&?)?$/,
