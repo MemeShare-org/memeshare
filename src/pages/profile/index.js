@@ -40,7 +40,7 @@ const Profile = () => {
   });
   const [profile, setProfile] = useState({});
   const [userData, setUserData] = useState({});
-  const [friends] = useState([]);
+  const [friends, setFriends] = useState([]);
   const [isFollowed, setIsFollowed] = useState(false);
 
   var formateDate = new Date(profile.createdAt);
@@ -121,6 +121,10 @@ const Profile = () => {
       followingId,
     });
   };
+
+  useEffect(() => {
+    setFriends(profile.following);
+  }, [profile]);
 
   document.title = `MemeShare | ${id}`;
   return (

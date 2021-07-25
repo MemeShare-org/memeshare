@@ -29,7 +29,7 @@ const Home = () => {
     postModal: false,
   });
   const [loading, setLoading] = useState(true);
-  const [friends] = useState([]);
+  const [friends, setFriends] = useState([]);
   const [posts, setPosts] = useState([]);
 
   const matches = useMediaQuery("(max-width:768px)");
@@ -41,6 +41,10 @@ const Home = () => {
     getUser({ id, setProfile, setLoading });
     getPosts({ setPosts });
   }, [id, setProfile]);
+
+  useEffect(() => {
+    setFriends(profile.following);
+  }, [profile]);
 
   return (
     <HomeDiv>

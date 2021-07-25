@@ -17,7 +17,7 @@ const PostPage = () => {
   const [profile, setProfile] = useState({});
   const [IsOpen, setIsOpen] = useState(false);
   const [loading, setLoading] = useState(true);
-  const [friends] = useState([]);
+  const [friends, setFriends] = useState([]);
   const [post, setPost] = useState({
     _id: "",
     title: "",
@@ -33,6 +33,10 @@ const PostPage = () => {
     getUser({ id, setProfile, setLoading });
     getPost({ postId, setPost });
   }, [id, user, postId, setProfile]);
+
+  useEffect(() => {
+    setFriends(profile.following);
+  }, [profile]);
 
   useEffect(() => (document.title = `MemeShare | ${post.title}`), [post]);
 
