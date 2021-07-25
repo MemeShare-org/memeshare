@@ -123,8 +123,8 @@ const Profile = () => {
   };
 
   useEffect(() => {
-    setFriends(profile.following);
-  }, [profile]);
+    setFriends(userData.following);
+  }, [userData]);
 
   document.title = `MemeShare | ${id}`;
   return (
@@ -197,7 +197,7 @@ const Profile = () => {
               setIsOpen={setIsOpen}
             />
           </PCDiv>
-          <FriendsList friends={friends} />
+          <FriendsList friends={friends || []} />
           <ProfileDiv>
             <ProfileCardDiv>
               <Div>
