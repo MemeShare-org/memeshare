@@ -40,7 +40,7 @@ export const TopPostsDiv = styled.div`
   }
 
   div button {
-    padding: 8px;
+    padding: 6.5px;
   }
 
   @media screen and (max-width: 768px) {
