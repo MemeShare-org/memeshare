@@ -12,7 +12,7 @@ const Post = ({ Conditions, post }) => {
   var formateDate = new Date(date);
 
   return (
-    <PostDiv className='post'>
+    <PostDiv className="post">
       <TopPostDiv>
         <AuthorDiv>
           <img
@@ -38,7 +38,7 @@ const Post = ({ Conditions, post }) => {
         <PostDetails Conditions={Conditions} userId={userId} PostId={_id} />
       </TopPostDiv>
       <h2>{title}</h2>
-      <img src={image} alt={title} title={title} />
+      <img src={image} loading="lazy" alt={title} title={title} />
     </PostDiv>
   );
 };
