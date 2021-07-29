@@ -6,6 +6,7 @@ import UserContext from "../../context/userContext";
 import getUser from "../../actions/user/getUser";
 import followUser from "../../actions/user/followUser";
 import unFollowUser from "../../actions/user/unFollowUser";
+import Tooltip from "@material-ui/core/Tooltip";
 import Loader from "../../components/loader";
 import Topbar from "../../components/topbar/index";
 import ProfileCard from "../../components/profile-card/index";
@@ -15,6 +16,7 @@ import ProfileMenu from "../../components/profile-menu";
 import PSModal from "../../components/ps-modal/index";
 import Post from "../../components/post/index";
 import Friend from "../../components/friend/index";
+import SupervisorAccountIcon from "@material-ui/icons/SupervisorAccount";
 import {
   LoaderDiv,
   PCDiv,
@@ -138,12 +140,13 @@ const Profile = () => {
           <PSModal
             IsOpen={IsOpen.followingModal}
             setIsOpen={setIsOpen}
-            ModalTitle='Following'
+            ModalTitle="Following"
             Content={
               <div
                 style={{
                   marginTop: "25px",
-                }}>
+                }}
+              >
                 {profile.following.length ? (
                   profile.following.map((follower, index) => (
                     <Friend key={index} friend={follower} />
@@ -154,7 +157,8 @@ const Profile = () => {
                       marginTop: "150px",
                       textAlign: "center",
                       color: "#cccdcf",
-                    }}>
+                    }}
+                  >
                     The list is empty
                   </h2>
                 )}
@@ -164,12 +168,13 @@ const Profile = () => {
           <PSModal
             IsOpen={IsOpen.followersModal}
             setIsOpen={setIsOpen}
-            ModalTitle='Followers'
+            ModalTitle="Followers"
             Content={
               <div
                 style={{
                   marginTop: "25px",
-                }}>
+                }}
+              >
                 {profile.followers.length ? (
                   profile.followers.map((follower, index) => (
                     <Friend key={index} friend={follower} />
@@ -180,7 +185,8 @@ const Profile = () => {
                       marginTop: "150px",
                       textAlign: "center",
                       color: "#cccdcf",
-                    }}>
+                    }}
+                  >
                     The list is empty
                   </h2>
                 )}
@@ -209,6 +215,14 @@ const Profile = () => {
                   />
                   <div>
                     <span>{profile.username}</span>
+                    {profile.role === "admin" ? (
+                      <Tooltip title="Admin">
+                        <SupervisorAccountIcon
+                          className="admin"
+                          aria-label="Admin"
+                        />
+                      </Tooltip>
+                    ) : null}
                     <label>
                       {moment({
                         year: formateDate.getFullYear(),
@@ -223,11 +237,11 @@ const Profile = () => {
                   {user.userId === profile._id ? (
                     ""
                   ) : isFollowed ? (
-                    <button className='follow-btn' onClick={handleUnFollowing}>
+                    <button className="follow-btn" onClick={handleUnFollowing}>
                       Unfollow
                     </button>
                   ) : (
-                    <button className='follow-btn' onClick={handleFollowing}>
+                    <button className="follow-btn" onClick={handleFollowing}>
                       Follow
                     </button>
                   )}
@@ -249,7 +263,8 @@ const Profile = () => {
                       followingModal: false,
                       followersModal: true,
                     })
-                  }>
+                  }
+                >
                   <number>{(profile.followers || []).length}</number> followers
                 </span>
                 <span
@@ -259,7 +274,8 @@ const Profile = () => {
                       followingModal: true,
                       followersModal: false,
                     })
-                  }>
+                  }
+                >
                   <number>{(profile.following || []).length}</number> following
                 </span>
               </ProfileStats>

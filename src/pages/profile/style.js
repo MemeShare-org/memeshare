@@ -62,7 +62,7 @@ export const TopProfileDiv = styled.div`
 
     label {
       color: #5d7290;
-      margin-left: 10px;
+      margin-left: 6px;
     }
   }
 
@@ -70,18 +70,22 @@ export const TopProfileDiv = styled.div`
     width: 80px;
     height: 80px;
     border-radius: 50px;
-    cursor: pointer;
   }
 
   span {
     font-size: 25px;
     color: white;
-    cursor: pointer;
     margin-left: 10px;
   }
 
   button {
     margin: 0px;
+  }
+
+  .admin {
+    margin-left: 5px;
+    cursor: pointer;
+    color: gold;
   }
 `;
 
