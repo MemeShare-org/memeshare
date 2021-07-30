@@ -128,7 +128,7 @@ const Profile = () => {
     setFriends(userData.following);
   }, [userData]);
 
-  document.title = `MemeShare | ${id}`;
+  document.title = `Memeshare | ${id}`;
   return (
     <div>
       {loading ? (

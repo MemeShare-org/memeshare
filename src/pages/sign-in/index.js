@@ -9,7 +9,7 @@ const Signin = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    document.title = "MemeShare | Sign in";
+    document.title = "Memeshare | Sign in";
     setLoading(false);
   }, []);
 

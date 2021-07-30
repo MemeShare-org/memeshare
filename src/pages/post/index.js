@@ -38,7 +38,7 @@ const PostPage = () => {
     setFriends(profile.following);
   }, [profile]);
 
-  useEffect(() => (document.title = `MemeShare | ${post.title}`), [post]);
+  useEffect(() => (document.title = `Memeshare | ${post.title}`), [post]);
 
   return (
     <div>

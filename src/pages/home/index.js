@@ -37,7 +37,7 @@ const Home = () => {
   var id = user.username;
 
   useEffect(() => {
-    document.title = "MemeShare | Home";
+    document.title = "Memeshare | Home";
     getUser({ id, setProfile, setLoading });
     getPosts({ setPosts });
   }, [id, setProfile]);
@@ -81,7 +81,8 @@ const Home = () => {
                     profileModal: false,
                     postModal: true,
                   })
-                }>
+                }
+              >
                 New
               </button>
             </div>
