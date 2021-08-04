@@ -3,7 +3,6 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import { isExpired, decodeToken } from "react-jwt";
 import UserContext from "./context/userContext";
 import { ToastContainer } from "react-toastify";
-// import changeStatus from "./actions/user/changeStatus";
 import Home from "./pages/home/index";
 import Profile from "./pages/profile/index";
 import PostPage from "./pages/post/index";
@@ -25,45 +24,29 @@ const App = () => {
     }
   }, [isTokenExpired]);
 
-  useEffect(() => {
-    // const isClosed = window.closed;
-    // var status;
-
-    if (user) {
-      // var id = user.userId;
-      // if (isClosed) {
-      //   status = "offline";
-      //   changeStatus({ id, status });
-      // } else {
-      //   status = "online";
-      //   changeStatus({ id, status });
-      // }
-    }
-  }, [user]);
-
   return (
-    <div className='App'>
+    <div className="App">
       <UserContext.Provider value={UserProvider}>
-        <ToastContainer position='bottom-right' autoClose={1500} />
-        <div className='routes'>
+        <ToastContainer position="bottom-right" autoClose={1500} />
+        <div className="routes">
           <Switch>
-            <Route exact path='/'>
-              {user ? <Redirect to='/home' /> : <Redirect to='/sign-in' />}
+            <Route exact path="/">
+              {user ? <Redirect to="/home" /> : <Redirect to="/sign-in" />}
             </Route>
-            <Route path='/home'>
-              {user ? <Home /> : <Redirect to='/sign-in' />}
+            <Route path="/home">
+              {user ? <Home /> : <Redirect to="/sign-in" />}
             </Route>
-            <Route path='/u/:id'>
-              {user ? <Profile /> : <Redirect to='/sign-in' />}
+            <Route path="/u/:id">
+              {user ? <Profile /> : <Redirect to="/sign-in" />}
             </Route>
-            <Route path='/p/:id'>
-              {user ? <PostPage /> : <Redirect to='/sign-in' />}
+            <Route path="/p/:id">
+              {user ? <PostPage /> : <Redirect to="/sign-in" />}
             </Route>
-            <Route path='/sign-up'>
-              {user ? <Redirect to='/' /> : <Signup />}
+            <Route path="/sign-up">
+              {user ? <Redirect to="/" /> : <Signup />}
             </Route>
-            <Route path='/sign-in'>
-              {user ? <Redirect to='/' /> : <Signin />}
+            <Route path="/sign-in">
+              {user ? <Redirect to="/" /> : <Signin />}
             </Route>
           </Switch>
         </div>
