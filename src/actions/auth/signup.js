@@ -1,7 +1,7 @@
 import API from "../../api/api";
 import { toast } from "react-toastify";
 
-const signup = ({ values, resetForm }) => {
+const signup = ({ setIsLoading, values, resetForm }) => {
   API.post(`/user/signup`, values)
     .then((res) => {
       resetForm();
@@ -10,7 +10,10 @@ const signup = ({ values, resetForm }) => {
         window.location.href = `/sign-in`;
       }, 1500);
     })
-    .catch(() => toast.error("Account already exist!"));
+    .catch(() => {
+      toast.error("Account already exist!");
+      setIsLoading(false);
+    });
 };
 
 export default signup;
