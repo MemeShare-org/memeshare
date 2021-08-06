@@ -5,7 +5,7 @@ export const FriendsListDiv = styled.div`
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
-  margin-top: 20vh;
+  margin-top: 19.5vh;
   margin-left: 20px;
 
   h1 {
