@@ -15,7 +15,7 @@ export const TopDiv = styled.div`
 `;
 
 export const FormDiv = styled.div`
-  margin-top: 10px;
+  margin-top: 3px;
   margin-right: 15px;
 
   label {

@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const TopDiv = styled.div`
   display: flex;
   justify-content: space-between;
-  margin-top: 5px;
+
   h2 {
     color: white;
   }
