@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import moment from "moment";
+import PostEditModal from "../post-edit-modal/index";
 import PostDetails from "./post-details";
 import { PostDiv, TopPostDiv, AuthorDiv } from "./style";
 
 const Post = ({ Conditions, post }) => {
   const { _id, date, title, author, image } = post;
+  const [IsOpen, setIsOpen] = useState(false);
   var userId = author._id;
 
   const history = useHistory();
@@ -13,6 +15,7 @@ const Post = ({ Conditions, post }) => {
 
   return (
     <PostDiv className="post">
+      <PostEditModal post={post} IsOpen={IsOpen} setIsOpen={setIsOpen} />
       <TopPostDiv>
         <AuthorDiv>
           <img
@@ -35,7 +38,12 @@ const Post = ({ Conditions, post }) => {
             }).fromNow()}
           </label>
         </AuthorDiv>
-        <PostDetails Conditions={Conditions} userId={userId} PostId={_id} />
+        <PostDetails
+          Conditions={Conditions}
+          userId={userId}
+          PostId={_id}
+          setIsOpen={setIsOpen}
+        />
       </TopPostDiv>
       <h2>{title}</h2>
       <img src={image} loading="lazy" alt={title} title={title} />

@@ -45,7 +45,7 @@ const StyledMenuItem = withStyles(() => ({
   },
 }))(MenuItem);
 
-const PostDetails = ({ Conditions, userId, PostId }) => {
+const PostDetails = ({ Conditions, userId, PostId, setIsOpen }) => {
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleClick = (event) => {
@@ -60,45 +60,53 @@ const PostDetails = ({ Conditions, userId, PostId }) => {
     <div>
       <KeyboardArrowDownIcon
         style={{ color: "white" }}
-        aria-controls='customized-menu'
-        aria-haspopup='true'
-        variant='contained'
+        aria-controls="customized-menu"
+        aria-haspopup="true"
+        variant="contained"
         onClick={handleClick}
       />
       <StyledMenu
-        id='customized-menu'
+        id="customized-menu"
         anchorEl={anchorEl}
         keepMounted
         open={Boolean(anchorEl)}
-        onClose={handleClose}>
+        onClose={handleClose}
+      >
         {Conditions ? (
           <div>
-            <StyledMenuItem>
+            <StyledMenuItem
+              onClick={() => {
+                setAnchorEl(false);
+                setIsOpen(true);
+              }}
+            >
               <ListItemIcon>
-                <EditIcon style={{ color: "white" }} fontSize='small' />
+                <EditIcon style={{ color: "white" }} fontSize="small" />
               </ListItemIcon>
-              <ListItemText primary='Edit' />
+              <ListItemText primary="Edit" />
             </StyledMenuItem>
             <StyledMenuItem
               onClick={() => {
                 var postId = PostId;
                 deletePost({ userId, postId });
-              }}>
+              }}
+            >
               <ListItemIcon>
-                <DeleteIcon style={{ color: "white" }} fontSize='small' />
+                <DeleteIcon style={{ color: "white" }} fontSize="small" />
               </ListItemIcon>
-              <ListItemText primary='Delete' />
+              <ListItemText primary="Delete" />
             </StyledMenuItem>
           </div>
         ) : null}
         <CopyToClipboard
           text={`${window.location.hostname}/p/${PostId}`}
-          onCopy={() => toast.success("Copied Successfully!")}>
+          onCopy={() => toast.success("Copied Successfully!")}
+        >
           <StyledMenuItem>
             <ListItemIcon>
-              <LinkIcon style={{ color: "white" }} fontSize='small' />
+              <LinkIcon style={{ color: "white" }} fontSize="small" />
             </ListItemIcon>
-            <ListItemText primary='Copy link' />
+            <ListItemText primary="Copy link" />
           </StyledMenuItem>
         </CopyToClipboard>
       </StyledMenu>
