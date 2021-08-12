@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Modal from "react-modal";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
@@ -17,6 +17,7 @@ const PostSchema = Yup.object().shape({
 });
 
 const PostModal = ({ authorId, addPost, IsOpen, setIsOpen }) => {
+  const [IsLoading, setIsLoading] = useState(false);
   const customStyles = {
     overlay: {
       background: "#0b0e1175",
@@ -46,13 +47,16 @@ const PostModal = ({ authorId, addPost, IsOpen, setIsOpen }) => {
     });
   }
 
+  Modal.setAppElement("#root");
+
   return (
     <div>
       <Modal
         isOpen={IsOpen.postModal}
         onRequestClose={closeModal}
         style={customStyles}
-        contentLabel='Example Modal'>
+        contentLabel="Example Modal"
+      >
         <TopDiv>
           <h2>New Post</h2>
           <ClearIcon onClick={() => closeModal()} />
@@ -68,9 +72,11 @@ const PostModal = ({ authorId, addPost, IsOpen, setIsOpen }) => {
             };
 
             setSubmitting(false);
+            setIsLoading(true);
             resetForm();
-            addPost({ post });
-          }}>
+            addPost({ post, setIsLoading });
+          }}
+        >
           {({ errors, touched, isSubmitting }) => (
             <Form>
               <FormDiv>
@@ -80,8 +86,8 @@ const PostModal = ({ authorId, addPost, IsOpen, setIsOpen }) => {
                     className={
                       errors.title && touched.title ? "error" : "succes"
                     }
-                    type='text'
-                    name='title'
+                    type="text"
+                    name="title"
                   />
                 </div>
                 <div>
@@ -90,12 +96,18 @@ const PostModal = ({ authorId, addPost, IsOpen, setIsOpen }) => {
                     className={
                       errors.memeURL && touched.memeURL ? "error" : "succes"
                     }
-                    type='url'
-                    name='memeURL'
+                    type="url"
+                    name="memeURL"
                   />
                 </div>
                 <ButtonsDiv>
-                  <Button Type='submit' Title='Post' Disable={isSubmitting} />
+                  <Button
+                    IsLoading={IsLoading}
+                    LoadingMessage="Posting.."
+                    Type="submit"
+                    Title="Post"
+                    Disable={isSubmitting}
+                  />
                   <span onClick={() => closeModal()}>Cancel</span>
                 </ButtonsDiv>
               </FormDiv>
