@@ -2,6 +2,7 @@ import React from "react";
 import Modal from "react-modal";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
+// import editPost from "../../actions/posts/editPost";
 import Button from "../button";
 import ClearIcon from "@material-ui/icons/Clear";
 import { TopDiv, FormDiv, ButtonsDiv } from "./style";
@@ -59,8 +60,12 @@ const PostEditModal = ({ post, IsOpen, setIsOpen }) => {
           initialValues={{ title: post.title, memeURL: post.image }}
           validationSchema={PostSchema}
           onSubmit={(values, { resetForm, setSubmitting }) => {
+            // const id = post._id;
+            // const { title, memeURL } = values;
+
             setSubmitting(false);
-            resetForm();
+            closeModal();
+            // editPost({ id, title, memeURL });
           }}
         >
           {({ errors, touched, isSubmitting }) => (
