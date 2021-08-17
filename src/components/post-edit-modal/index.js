@@ -44,6 +44,8 @@ const PostEditModal = ({ post, IsOpen, setIsOpen }) => {
     setIsOpen(false);
   }
 
+  Modal.setAppElement("#root");
+
   return (
     <div>
       <Modal

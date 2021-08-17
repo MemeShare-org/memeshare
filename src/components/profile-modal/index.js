@@ -54,13 +54,16 @@ const ProfileModal = ({ user, IsOpen, setIsOpen }) => {
     });
   }
 
+  Modal.setAppElement("#root");
+
   return (
     <div>
       <Modal
         isOpen={IsOpen.profileModal}
         onRequestClose={closeModal}
         style={customStyles}
-        contentLabel='Example Modal'>
+        contentLabel="Example Modal"
+      >
         <TopDiv>
           <h2>Edit Profile</h2>
           <ClearIcon onClick={() => closeModal()} />
@@ -69,7 +72,7 @@ const ProfileModal = ({ user, IsOpen, setIsOpen }) => {
           <div>
             <label style={customStyles.label}>Avatar URL</label>
             <Input
-              Value={inputValues.picture}
+              value={inputValues.picture}
               onChange={(e) =>
                 setInputValues({ ...inputValues, picture: e.target.value })
               }
@@ -104,7 +107,7 @@ const ProfileModal = ({ user, IsOpen, setIsOpen }) => {
           </div>
           <ButtonsDiv>
             <Button
-              Title='Save'
+              Title="Save"
               onClick={() => {
                 var id = user._id;
                 editUser({ id, inputValues, closeModal });

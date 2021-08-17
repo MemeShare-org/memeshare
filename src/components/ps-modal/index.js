@@ -35,6 +35,8 @@ const PSModal = ({ IsOpen, setIsOpen, ModalTitle, Content }) => {
     document.body.style.overflow = "unset";
   }
 
+  Modal.setAppElement("#root");
+
   return (
     <Modal isOpen={IsOpen} onRequestClose={closeModal} style={customStyles}>
       <TopDiv>
