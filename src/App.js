@@ -31,16 +31,16 @@ const App = () => {
         <div className="routes">
           <Switch>
             <Route exact path="/">
-              {user ? <Redirect to="/home" /> : <Redirect to="/sign-in" />}
+              {user ? <Redirect to="/home" /> : <Redirect to="/signin" />}
             </Route>
             <Route path="/home">
-              {user ? <Home /> : <Redirect to="/sign-in" />}
+              {user ? <Home /> : <Redirect to="/signin" />}
             </Route>
             <Route path="/u/:id">
-              {user ? <Profile /> : <Redirect to="/sign-in" />}
+              {user ? <Profile /> : <Redirect to="/signin" />}
             </Route>
             <Route path="/p/:id">
-              {user ? <PostPage /> : <Redirect to="/sign-in" />}
+              {user ? <PostPage /> : <Redirect to="/signin" />}
             </Route>
             <Route path="/signup">
               {user ? <Redirect to="/" /> : <Signup />}
