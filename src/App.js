@@ -42,10 +42,10 @@ const App = () => {
             <Route path="/p/:id">
               {user ? <PostPage /> : <Redirect to="/sign-in" />}
             </Route>
-            <Route path="/sign-up">
+            <Route path="/signup">
               {user ? <Redirect to="/" /> : <Signup />}
             </Route>
-            <Route path="/sign-in">
+            <Route path="/signin">
               {user ? <Redirect to="/" /> : <Signin />}
             </Route>
           </Switch>
