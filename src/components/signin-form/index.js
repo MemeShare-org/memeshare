@@ -53,7 +53,7 @@ const SignInForm = () => {
               placeholder="Password"
             />
             <div>
-              <a href="/sign-up">I don't have an account</a>
+              <a href="/signup">I don't have an account</a>
             </div>
             <Button
               IsLoading={IsLoading}

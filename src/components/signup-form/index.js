@@ -61,7 +61,7 @@ const SignUpForm = () => {
               placeholder="Password"
             />
             <div>
-              <a href="/sign-in">I already have an account</a>
+              <a href="/signin">I already have an account</a>
             </div>
             <Button
               IsLoading={IsLoading}
