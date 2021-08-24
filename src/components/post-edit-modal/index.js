@@ -1,8 +1,9 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import Modal from "react-modal";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
-// import editPost from "../../actions/posts/editPost";
+import editPost from "../../actions/posts/editPost";
 import Button from "../button";
 import ClearIcon from "@material-ui/icons/Clear";
 import { TopDiv, FormDiv, ButtonsDiv } from "./style";
@@ -18,6 +19,7 @@ const PostSchema = Yup.object().shape({
 });
 
 const PostEditModal = ({ post, IsOpen, setIsOpen }) => {
+  let history = useHistory();
   const customStyles = {
     overlay: {
       background: "#0b0e1175",
@@ -62,12 +64,12 @@ const PostEditModal = ({ post, IsOpen, setIsOpen }) => {
           initialValues={{ title: post.title, memeURL: post.image }}
           validationSchema={PostSchema}
           onSubmit={(values, { resetForm, setSubmitting }) => {
-            // const id = post._id;
-            // const { title, memeURL } = values;
+            const id = post._id;
+            const { title, memeURL } = values;
 
             setSubmitting(false);
             closeModal();
-            // editPost({ id, title, memeURL });
+            editPost({ id, title, memeURL, history });
           }}
         >
           {({ errors, touched, isSubmitting }) => (
