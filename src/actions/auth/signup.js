@@ -7,7 +7,7 @@ const signup = ({ setIsLoading, values, resetForm }) => {
       resetForm();
       toast.success("Account created! Go check your email.");
       setTimeout(() => {
-        window.location.href = `/sign-in`;
+        window.location.href = `/signin`;
       }, 1500);
     })
     .catch(() => {
