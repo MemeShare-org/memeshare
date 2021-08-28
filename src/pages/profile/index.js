@@ -17,6 +17,7 @@ import PSModal from "../../components/ps-modal/index";
 import Post from "../../components/post/index";
 import Friend from "../../components/friend/index";
 import SupervisorAccountIcon from "@material-ui/icons/SupervisorAccount";
+import verifiedIcon from "../../assests/verified.svg";
 import {
   LoaderDiv,
   PCDiv,
@@ -220,6 +221,16 @@ const Profile = () => {
                         <SupervisorAccountIcon
                           className="admin"
                           aria-label="Admin"
+                        />
+                      </Tooltip>
+                    ) : null}
+                    {profile.role === "verified" ? (
+                      <Tooltip title="Verified">
+                        <img
+                          className="verified"
+                          alt="Verified"
+                          src={verifiedIcon}
+                          aria-label="Verified"
                         />
                       </Tooltip>
                     ) : null}

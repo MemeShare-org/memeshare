@@ -87,6 +87,13 @@ export const TopProfileDiv = styled.div`
     cursor: pointer;
     color: gold;
   }
+
+  .verified {
+    margin-left: 5px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+  }
 `;
 
 export const ProfileStats = styled.div`
