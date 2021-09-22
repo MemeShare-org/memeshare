@@ -16,7 +16,7 @@ import ProfileMenu from "../../components/profile-menu";
 import PSModal from "../../components/ps-modal/index";
 import Post from "../../components/post/index";
 import Friend from "../../components/friend/index";
-import SupervisorAccountIcon from "@material-ui/icons/SupervisorAccount";
+// import SupervisorAccountIcon from "@material-ui/icons/SupervisorAccount";
 import verifiedIcon from "../../assests/verified.svg";
 import {
   LoaderDiv,
@@ -217,12 +217,14 @@ const Profile = () => {
                   <div>
                     <span>{profile.username}</span>
                     {profile.role === "admin" ? (
-                      <Tooltip title="Admin">
-                        <SupervisorAccountIcon
-                          className="admin"
-                          aria-label="Admin"
-                        />
-                      </Tooltip>
+                      <div>
+                        {/* <Tooltip title="Admin">
+                           <SupervisorAccountIcon
+                             className="admin"
+                            aria-label="Admin"
+                          />
+                        // </Tooltip> */}
+                      </div>
                     ) : null}
                     {profile.role === "verified" ? (
                       <Tooltip title="Verified">
