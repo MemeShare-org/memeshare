@@ -9,9 +9,6 @@ export const ProfileCardDiv = styled.div`
   border-radius: 10px;
   width: 300px;
   height: auto;
-  @media screen and (max-width: 768px) {
-    display: none;
-  }
 `;
 
 export const ProfileDiv = styled.div`

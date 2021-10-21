@@ -29,10 +29,6 @@ export const ProfileCardDiv = styled.div`
   width: 40%;
   background-color: #242c37;
   border-radius: 10px;
-
-  @media screen and (max-width: 768px) {
-    width: 80%;
-  }
 `;
 
 export const Div = styled.div`
@@ -128,11 +124,5 @@ export const PostsDiv = styled.div`
 
   .post {
     width: 40%;
-  }
-
-  @media screen and (max-width: 768px) {
-    .post {
-      width: 80%;
-    }
   }
 `;

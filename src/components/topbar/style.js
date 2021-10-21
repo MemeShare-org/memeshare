@@ -26,23 +26,4 @@ export const TopbarDiv = styled.div`
     font-size: 50px;
     color: white;
   }
-
-  @media screen and (max-width: 768px) {
-    .logo {
-      left: 2px;
-    }
-
-    input {
-      width: 75%;
-      right: 2.5%;
-    }
-
-    svg {
-      display: none;
-    }
-
-    .header {
-      display: none;
-    }
-  }
 `;

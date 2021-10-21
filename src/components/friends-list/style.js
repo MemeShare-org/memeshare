@@ -18,10 +18,6 @@ export const FriendsListDiv = styled.div`
     color: #5d7290;
     margin: 5px 0px 10px 0px;
   }
-
-  @media screen and (max-width: 768px) {
-    display: none;
-  }
 `;
 
 export const FriendsDiv = styled.div`
