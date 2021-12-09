@@ -25,7 +25,7 @@ const PostModal = ({ authorId, addPost, IsOpen, setIsOpen }) => {
     },
     content: {
       width: "50vh",
-      height: "30vh",
+      height: "32vh",
       overflow: "hidden",
       top: "50%",
       left: "50%",

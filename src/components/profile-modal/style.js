@@ -15,8 +15,7 @@ export const TopDiv = styled.div`
 `;
 
 export const FormDiv = styled.div`
-  margin-top: 3px;
-  margin-right: 15px;
+  margin: 10px 15px 0px 0px;
 
   label {
     color: #5d7290;
@@ -32,6 +31,7 @@ export const ButtonsDiv = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 0px;
 
   button {
     margin: 10px 10px 10px 5px;
